@@ -10,6 +10,27 @@ export const Break = styled.div`
 margin-top: 20px;
 `;
 
+export const PercentisCard = styled.div`
+margin-left: 20px;
+    align-self: center;
+
+    td{
+        text-align: center;
+        font-size: 0.8rem;      
+    }
+`;
+
+export const Percentis = styled.div`
+    width: 90px;
+    height: 20px;
+   
+`;
+
+export const Row = styled.div`
+display: flex;
+flex-direction: row;
+`;
+
 export const Box = styled.div`
 margin-top: 10px;
 justify-content: space-between;

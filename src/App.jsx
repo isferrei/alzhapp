@@ -26,10 +26,9 @@ function App({history}) {
     ocularDisease: '',
     octModel: '',
   }
+
   const [cognitiveTest, setCognitiveTest] = React.useReducer(defaultReducer, testSchema);
-
   console.log(cognitiveTest);
-
 
   return (
     <Container>
