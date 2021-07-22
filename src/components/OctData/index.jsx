@@ -5,8 +5,9 @@ import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import { Form, Box, Break, Row, Percentis, PercentisCard } from './styles';
 import { defaultReducer } from '../../reducers';
-import { colors } from '../../services/colors'
-import { color } from '@material-ui/system';
+import colors from '../../services/colors'
+import { Route, Link, BrowserRouter } from "react-router-dom";
+import { Results } from "../../components";
 
 const percentisControle = [
   {var: 'peripapillary', p1: 72.9, p5: 80.6, p10:84.7, p25: 91.6, p50: 99.3, p75: 106.9, p90:113.8, p95:117.9, p99: 125.7},
@@ -17,22 +18,70 @@ const percentisControle = [
 ]
 
 function OctData(props) {
-  const [cognitiveTest, setCognitiveTest] = React.useReducer(defaultReducer);
+
+const octDataInitialState={
+    peripapillary: {
+      od:'',
+      os:'',
+    },
+    macular_thickness: {
+      od: '',
+      os:'',
+    },
+    macular_volume: {
+      od: '',
+      os:'',
+    },
+    gcl_ipl: {
+      od: '',
+      os:'',
+    },
+    gcl_ipl_rnfl: {
+      od: '',
+      os:'',
+    }
+  };
+
+  const [octData, setOctData] = React.useReducer(defaultReducer, octDataInitialState);
   const [background, setBackground] = React.useState();
 
-  function handlePercentis(data, value){
-      console.log(percentisControle.find(percent => percent.var === data));
+  console.log(octData);
 
+  function handlePercentis(data, value){
     if(percentisControle.find(percent => percent.var === data)){
       const arr = percentisControle.find(percent => percent.var === data);
-      console.log(arr.filter(percentage => percentage === value));
-      if(arr.find(percentage => percentage === value)){
-
+      console.log(arr);
+      if(value >= arr.p1 && value <= arr.p5){
+        return setBackground('p1-p5')
+      }
+      else if(value >= arr.p5 && value <= arr.p10){
+        return 'p5-p10'
+      }
+      else if(value >= arr.p10 && value <= arr.p25){
+        return 'p10-p25'
+      }
+      else if(value >= arr.p25 && value <= arr.p50){
+        return 'p25-p50'
+      }
+      else if(value >= arr.p50 && value <= arr.p75){
+        return 'p50-p75'
+      }
+      else if(value >= arr.p75 && value <= arr.p90){
+        return 'p75-p90'
+      }
+      else if(value >= arr.p90 && value <= arr.p95){
+        return 'p90-p95'
+      }
+      else if(value >= arr.p95 && value <= arr.p99){
+        return 'p95-p99'
       }
     }
   }
 
+  console.log(background);
+
   return (
+    <>
     <Container>
       <label>OCT Data</label>
       <Break />
@@ -45,8 +94,10 @@ function OctData(props) {
               <label>OD</label>
               <input type='text' id='peripapillary' onChange={event => {
                 const value = event.target.value;
-                setCognitiveTest({
-                  physician: value,
+                setOctData({
+                  peripapillary:{
+                    od: value
+                  },
                 })
               }} onInput={event => handlePercentis(event.target.id, event.target.value)}/>
             </Box>
@@ -54,9 +105,11 @@ function OctData(props) {
               <label>OS</label>
               <input type='text' onChange={event => {
                 const value = event.target.value;
-                setCognitiveTest({
-                  patient: value,
-                });
+                setOctData({
+                  peripapillary:{
+                    os: value
+                  },
+                })
               }} />
             </Box>
           </div>
@@ -65,7 +118,7 @@ function OctData(props) {
             <tr>
               <td>
               <label>Controls</label>
-              <Percentis style={{ backgroundColor: background}}>p10-p25</Percentis>
+              <Percentis>{}</Percentis>
               </td>
             </tr>
             <tr></tr>
@@ -88,18 +141,22 @@ function OctData(props) {
               <label>OD</label>
               <input type='text' onChange={event => {
                 const value = event.target.value;
-                setCognitiveTest({
-                  physician: value,
-                });
+               setOctData({
+                  macular_thickness:{
+                    od: value
+                  },
+                })
               }} />
             </Box>
             <Box>
               <label>OS</label>
               <input type='text' onChange={event => {
                 const value = event.target.value;
-                setCognitiveTest({
-                  patient: value,
-                });
+               setOctData({
+                  macular_thickness:{
+                    os: value
+                  },
+                })
               }} />
             </Box>
           </div>
@@ -131,18 +188,22 @@ function OctData(props) {
               <label>OD</label>
               <input type='text' onChange={event => {
                 const value = event.target.value;
-                setCognitiveTest({
-                  physician: value,
-                });
+               setOctData({
+                  macular_volume:{
+                    od: value
+                  },
+                })
               }} />
             </Box>
             <Box>
               <label>OS</label>
               <input type='text' onChange={event => {
                 const value = event.target.value;
-                setCognitiveTest({
-                  patient: value,
-                });
+                setOctData({
+                  macular_volume:{
+                    os: value
+                  },
+                })
               }} />
             </Box>
           </div>
@@ -174,18 +235,22 @@ function OctData(props) {
               <label>OD</label>
               <input type='text' onChange={event => {
                 const value = event.target.value;
-                setCognitiveTest({
-                  physician: value,
-                });
+               setOctData({
+                  gcl_ipl:{
+                    od: value
+                  },
+                })
               }} />
             </Box>
             <Box>
               <label>OS</label>
               <input type='text' onChange={event => {
                 const value = event.target.value;
-                setCognitiveTest({
-                  patient: value,
-                });
+               setOctData({
+                  gcl_ipl:{
+                    os: value
+                  },
+                })
               }} />
             </Box>
           </div>
@@ -217,18 +282,22 @@ function OctData(props) {
               <label>OD</label>
               <input type='text' onChange={event => {
                 const value = event.target.value;
-                setCognitiveTest({
-                  physician: value,
-                });
+                 setOctData({
+                  gcl_ipl_rnfl:{
+                    od: parseInt(value)
+                  },
+                })
               }} />
             </Box>
             <Box>
               <label>OS</label>
               <input type='text' onChange={event => {
                 const value = event.target.value;
-                setCognitiveTest({
-                  patient: value,
-                });
+                setOctData({
+                  gcl_ipl_rnfl:{
+                    os: value
+                  },
+                })
               }} />
             </Box>
           </div>
@@ -254,6 +323,17 @@ function OctData(props) {
       </Form>
       <Break />
     </Container>
+     <BrowserRouter>
+ 
+        <Link to="/results">
+          <Button variant="contained" color="primary" href="#contained-buttons">
+          Generate Results
+          </Button>
+        </Link> 
+        
+        <Route path="/results" component={Results} />
+      </BrowserRouter>
+  </>
   );
 }
 
