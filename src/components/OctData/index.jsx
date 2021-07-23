@@ -109,8 +109,6 @@ function OctData(props) {
   const [gclIplRnflOdPerc, setGclIplRnflOdPerc] = React.useState();
   const [gclIplRnflOsPerc, setGclIplRnflOsPerc] = React.useState();
 
-  console.log(peripOsPerc);
-
   function handlePercentis(data, value) {
     if (percentisControle.find((percent) => percent.var === data)) {
       const arr = percentisControle.find((percent) => percent.var === data);

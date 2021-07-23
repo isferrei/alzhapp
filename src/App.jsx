@@ -1,19 +1,34 @@
-import React from "react";
-import { Button, Container } from "@material-ui/core";
-import MenuItem from "@material-ui/core/MenuItem";
-import FormControl from "@material-ui/core/FormControl";
-import Select from "@material-ui/core/Select";
-import { Form, Box, Break } from "./styles";
-import { defaultReducer } from "./reducers";
-import { redirectTo } from "./scripts/RedirectTo";
-import { Route, Link, BrowserRouter } from "react-router-dom";
-import { OctData } from "./components";
-import "./App.css";
-import { CognitiveTestContext } from "./context";
+import React from 'react';
+import { Button, Container } from '@material-ui/core';
+import MenuItem from '@material-ui/core/MenuItem';
+import FormControl from '@material-ui/core/FormControl';
+import Select from '@material-ui/core/Select';
+import { Form, Box, Break } from './styles';
+import { defaultReducer } from './reducers';
+import { redirectTo } from './scripts/RedirectTo';
+import { Route, Link, BrowserRouter } from 'react-router-dom';
+import { OctData } from './components';
+import './App.css';
 
 function App({ history }) {
-  const { cognitiveTest, setCognitiveTest } =
-    React.useContext(CognitiveTestContext);
+  const testSchema = {
+    physician: '',
+    patient: '',
+    idNumber: '',
+    sex: '',
+    age: '',
+    diagnosis: '',
+    cognitiveTestA: '',
+    scoreA: '',
+    cognitiveTestB: '',
+    scoreB: '',
+    ocularDisease: '',
+    octModel: '',
+  };
+  const [cognitiveTest, setCognitiveTest] = React.useReducer(
+    defaultReducer,
+    testSchema
+  );
 
   return (
     <Container>
@@ -22,7 +37,7 @@ function App({ history }) {
         <Box>
           <label>Physician:</label>
           <input
-            type="text"
+            type='text'
             onChange={(event) => {
               const value = event.target.value;
               setCognitiveTest({
@@ -34,7 +49,7 @@ function App({ history }) {
         <Box>
           <label>Patient:</label>
           <input
-            type="text"
+            type='text'
             onChange={(event) => {
               const value = event.target.value;
               setCognitiveTest({
@@ -46,7 +61,7 @@ function App({ history }) {
         <Box>
           <label>ID number:</label>
           <input
-            type="text"
+            type='text'
             onChange={(event) => {
               const value = event.target.value;
               setCognitiveTest({
@@ -58,7 +73,7 @@ function App({ history }) {
         <Box>
           <label>Sex:</label>
           <input
-            type="text"
+            type='text'
             onChange={(event) => {
               const value = event.target.value;
               setCognitiveTest({
@@ -68,7 +83,7 @@ function App({ history }) {
           />
           <label> Age:</label>
           <input
-            type="text"
+            type='text'
             onChange={(event) => {
               const value = event.target.value;
               setCognitiveTest({
@@ -79,11 +94,11 @@ function App({ history }) {
         </Box>
         <Box>
           <label>Diagnosis:</label>
-          <FormControl fullWidth variant="outlined">
+          <FormControl fullWidth variant='outlined'>
             <Select
-              labelId="demo-simple-select-error-label"
-              id="demo-simple-select-error"
-              value={"Please select the Diagnosis"}
+              labelId='demo-simple-select-error-label'
+              id='demo-simple-select-error'
+              value={'Please select the Diagnosis'}
               renderValue={(value) => `${value}`}
               onChange={(event) => {
                 const value = event.target.value;
@@ -92,14 +107,14 @@ function App({ history }) {
                 });
               }}
             >
-              <MenuItem value="" disabled>
+              <MenuItem value='' disabled>
                 <em>Please select the Diagnosis:</em>
               </MenuItem>
-              <MenuItem value={"Dementia"}>Dementia</MenuItem>
+              <MenuItem value={'Dementia'}>Dementia</MenuItem>
               <MenuItem value={"Parkinson's disease"}>
                 Parkinson's disease
               </MenuItem>
-              <MenuItem value={"Mild cognitive impairment"}>
+              <MenuItem value={'Mild cognitive impairment'}>
                 Mild cognitive impairment
               </MenuItem>
               <MenuItem value={"Alzheimer's disease"}>
@@ -111,7 +126,7 @@ function App({ history }) {
         <Box>
           <label>Cognitive test A:</label>
           <input
-            type="text"
+            type='text'
             onChange={(event) => {
               const value = event.target.value;
               setCognitiveTest({
@@ -123,7 +138,7 @@ function App({ history }) {
         <Box>
           <label>Score value:</label>
           <input
-            type="text"
+            type='text'
             onChange={(event) => {
               const value = event.target.value;
               setCognitiveTest({
@@ -135,7 +150,7 @@ function App({ history }) {
         <Box>
           <label>Cognitive test B:</label>
           <input
-            type="text"
+            type='text'
             onChange={(event) => {
               const value = event.target.value;
               setCognitiveTest({
@@ -147,7 +162,7 @@ function App({ history }) {
         <Box>
           <label>Score value:</label>
           <input
-            type="text"
+            type='text'
             onChange={(event) => {
               const value = event.target.value;
               setCognitiveTest({
@@ -159,7 +174,7 @@ function App({ history }) {
         <Box>
           <label>Ocular disease:</label>
           <input
-            type="text"
+            type='text'
             onChange={(event) => {
               const value = event.target.value;
               setCognitiveTest({
@@ -171,7 +186,7 @@ function App({ history }) {
         <Box>
           <label>OCT model:</label>
           <input
-            type="text"
+            type='text'
             onChange={(event) => {
               const value = event.target.value;
               setCognitiveTest({
@@ -184,13 +199,13 @@ function App({ history }) {
       <Break />
 
       <BrowserRouter>
-        <Link to="/oct_data">
-          <Button variant="contained" color="primary" href="#contained-buttons">
+        <Link to='/oct_data'>
+          <Button variant='contained' color='primary' href='#contained-buttons'>
             OCT data
           </Button>
         </Link>
 
-        <Route path="/oct_data" component={OctData} />
+        <Route path='/oct_data' component={OctData} />
       </BrowserRouter>
     </Container>
   );

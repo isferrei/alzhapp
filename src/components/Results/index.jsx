@@ -1,12 +1,9 @@
-import React from "react";
-import { Button, Container } from "@material-ui/core";
-import { Form, Box, Break, Row, Percentis, PercentisCard } from "./styles";
-import colors from "../../services/colors";
-import {CognitiveTestContext} from "../../context";
+import React from 'react';
+import { Button, Container } from '@material-ui/core';
+import { Form, Box, Break, Row, Percentis, PercentisCard } from './styles';
+import colors from '../../services/colors';
 
 function Results(props) {
-  const { cognitiveTest } = React.useContext(CognitiveTestContext);
-
   return (
     <Container>
       <label>Results / Summary:</label>
