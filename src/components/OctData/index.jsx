@@ -134,8 +134,6 @@ function OctData(props) {
         return <Percentis background={colors.white}>p95-p99</Percentis>;
       }
     }
-
-    return percent;
   }
 
   return (
@@ -466,9 +464,7 @@ function OctData(props) {
                 <tr></tr>
                 <tr></tr>
                 <tr>
-                  <td>
-                    {gclIplRnflOsPerc ? gclIplRnflOsPerc : <Percentis />}
-                  </td>
+                  <td>{gclIplRnflOsPerc ? gclIplRnflOsPerc : <Percentis />}</td>
                 </tr>
               </table>
             </PercentisCard>
