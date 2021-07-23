@@ -1,7 +1,7 @@
 {
   "name": "publicalbum-embed-player",
   "version": "0.1.0",
-  "homepage": "https://www.publicalbum.org/webapp/embed-player",
+  "homepage": "https://alzhapp.netlify.app/",
   "dependencies": {
     "@material-ui/core": "^4.12.1",
     "@testing-library/jest-dom": "^5.11.4",

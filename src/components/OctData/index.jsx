@@ -134,6 +134,8 @@ function OctData(props) {
         return <Percentis background={colors.white}>p95-p99</Percentis>;
       }
     }
+
+    return percent;
   }
 
   return (
