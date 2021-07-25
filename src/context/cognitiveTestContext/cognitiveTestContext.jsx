@@ -1,7 +1,8 @@
 import React from 'react';
-const CognitiveTestContext = React.createContext();
 
-function CognitiveProvider({ children }) {
+export const CognitiveTestContext = React.createContext();
+
+export const CognitiveProvider = ({ children }) => {
   const testSchema = {
     physician: '',
     patient: '',
@@ -18,7 +19,10 @@ function CognitiveProvider({ children }) {
   };
 
   const reducer = (state, newState) => ({ ...state, ...newState });
-  const [cognitiveTest, setCognitiveTest] = React.useReducer(reducer, {});
+  const [cognitiveTest, setCognitiveTest] = React.useReducer(
+    reducer,
+    testSchema
+  );
 
   return (
     <CognitiveTestContext.Provider
@@ -32,4 +36,3 @@ function CognitiveProvider({ children }) {
   );
 }
 
-export { CognitiveTestContext, CognitiveProvider };

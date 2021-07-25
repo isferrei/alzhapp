@@ -1,28 +1,31 @@
-import React from 'react';
-import { Button, Container } from '@material-ui/core';
-import { Form, Box, Break, Row, Percentis, PercentisCard } from './styles';
-import colors from '../../services/colors';
+import React from "react";
+import { Button, Container } from "@material-ui/core";
+import { Form, Box, Break, Row, Percentis, PercentisCard } from "./styles";
+import colors from "../../services/colors";
+import { CognitiveTestContext } from "../../context/cognitiveTestContext/cognitiveTestContext";
 
 function Results(props) {
+  const cognitiveTestData = React.useContext(CognitiveTestContext);
+
   return (
     <Container>
       <label>Results / Summary:</label>
       <Form>
         <Box>
-          <label>Physician:</label>
+          <label>Physician: {cognitiveTestData.physician}</label>
         </Box>
         <Box>
-          <label>Patient:</label>
+          <label>Patient: {cognitiveTestData.patitent}</label>
         </Box>
         <Box>
-          <label>ID number:</label>
+          <label>ID number: {cognitiveTestData.idNumber}</label>
         </Box>
         <Box>
-          <label>Sex:</label>
-          <label> Age:</label>
+          <label>Sex: {cognitiveTestData.sex}</label>
+          <label> Age: {cognitiveTestData.age}</label>
         </Box>
         <Box>
-          <label>Diagnosis:</label>
+          <label>Diagnosis: {cognitiveTestData.diagnosis}</label>
         </Box>
       </Form>
       <Break />
