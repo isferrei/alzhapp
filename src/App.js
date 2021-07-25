@@ -1,6 +1,6 @@
 import React from "react";
-import { Container } from "@material-ui/core";
-import { CognitiveProvider } from "./context/cognitiveTestContext/cognitiveTestContext";
+import { CognitiveProvider } from "./context/cognitiveTestContext";
+import { OctProvider } from "./context/octDataContext";
 import { Route, BrowserRouter } from "react-router-dom";
 import {
   CognitiveTest,
@@ -16,14 +16,16 @@ function App({ history }) {
   return (
     <>
       <CognitiveProvider>
-        <BrowserRouter>
-          <Navbar />
-          <Route path="/" component={Home} />
-          <Route path="/oct_data" component={OctData} />
-          <Route path="/results" component={Results} />
-          <Route path="/cognitive_test" component={CognitiveTest} />
-          <Footer />
-        </BrowserRouter>
+        <OctProvider>
+          <BrowserRouter>
+            <Navbar />
+            <Route path="/" component={Home} />
+            <Route path="/oct_data" component={OctData} />
+            <Route path="/results" component={Results} />
+            <Route path="/cognitive_test" component={CognitiveTest} />
+            <Footer />
+          </BrowserRouter>
+        </OctProvider>
       </CognitiveProvider>
     </>
   );

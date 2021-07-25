@@ -1,21 +1,21 @@
-import React from 'react';
+import React from "react";
 
 export const CognitiveTestContext = React.createContext();
 
 export const CognitiveProvider = ({ children }) => {
   const testSchema = {
-    physician: '',
-    patient: '',
-    idNumber: '',
-    sex: '',
-    age: '',
-    diagnosis: '',
-    cognitiveTestA: '',
-    scoreA: '',
-    cognitiveTestB: '',
-    scoreB: '',
-    ocularDisease: '',
-    octModel: '',
+    physician: "",
+    patient: "",
+    idNumber: "",
+    sex: "",
+    age: "",
+    diagnosis: "",
+    cognitiveTestA: "",
+    scoreA: "",
+    cognitiveTestB: "",
+    scoreB: "",
+    ocularDisease: "",
+    octModel: "",
   };
 
   const reducer = (state, newState) => ({ ...state, ...newState });
@@ -34,5 +34,4 @@ export const CognitiveProvider = ({ children }) => {
       {children}
     </CognitiveTestContext.Provider>
   );
-}
-
+};

@@ -1,10 +1,19 @@
 import React from "react";
-import { Button, Container } from "@material-ui/core";
-import { Form, Box, Break, Row, Percentis, PercentisCard } from "./styles";
+import { Button } from "@material-ui/core";
+import {
+  Container,
+  Form,
+  Box,
+  Break,
+  Row,
+  Percentis,
+  PercentisCard,
+} from "./styles";
 import { defaultReducer } from "../../reducers";
 import colors from "../../services/colors";
 import { Route, Link, BrowserRouter } from "react-router-dom";
 import { Results } from "../../components";
+import { OctDataContext } from "../../context/octDataContext";
 
 const percentisControle = [
   {
@@ -70,34 +79,7 @@ const percentisControle = [
 ];
 
 function OctData(props) {
-  const octDataInitialState = {
-    peripapillary: {
-      od: "",
-      os: "",
-    },
-    macular_thickness: {
-      od: "",
-      os: "",
-    },
-    macular_volume: {
-      od: "",
-      os: "",
-    },
-    gcl_ipl: {
-      od: "",
-      os: "",
-    },
-    gcl_ipl_rnfl: {
-      od: "",
-      os: "",
-    },
-  };
-
-  const [octData, setOctData] = React.useReducer(
-    defaultReducer,
-    octDataInitialState
-  );
-  const [background, setBackground] = React.useState();
+  const { octData, setOctData } = React.useContext(OctDataContext);
   const [peripOsPerc, setPeripOsPerc] = React.useState();
   const [peripOdPerc, setPeripOdPerc] = React.useState();
   const [totalMacularOdPerc, setTotalMacularOdPerc] = React.useState();
@@ -443,7 +425,7 @@ function OctData(props) {
                     });
                   }}
                   onInput={(event) =>
-                    setGclIplOsPerc(
+                    setGclIplRnflOsPerc(
                       handlePercentis(event.target.id, event.target.value)
                     )
                   }

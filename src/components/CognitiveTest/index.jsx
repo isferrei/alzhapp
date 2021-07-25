@@ -1,17 +1,17 @@
 import React from "react";
-import { Button, Container } from "@material-ui/core";
+import { Button } from "@material-ui/core";
 import MenuItem from "@material-ui/core/MenuItem";
 import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
-import { Form, Box, Break } from "./styles";
-import { defaultReducer } from "../../reducers";
-import { CognitiveTestContext } from "../../context/cognitiveTestContext/cognitiveTestContext";
+import { Container, Form, Box, Break } from "./styles";
+import { CognitiveTestContext } from "../../context/cognitiveTestContext";
 import { Route, Link, BrowserRouter } from "react-router-dom";
 import { OctData } from "..";
 
 function CognitiveTest({ history }) {
-  const { cognitiveTest, setCognitiveTest } = React.useContext();
-
+  const { cognitiveTest, setCognitiveTest } =
+    React.useContext(CognitiveTestContext);
+  console.log(cognitiveTest);
   return (
     <Container>
       <label>Please, enter the patient data:</label>

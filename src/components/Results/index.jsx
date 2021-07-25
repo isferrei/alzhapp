@@ -1,31 +1,44 @@
 import React from "react";
-import { Button, Container } from "@material-ui/core";
-import { Form, Box, Break, Row, Percentis, PercentisCard } from "./styles";
-import colors from "../../services/colors";
-import { CognitiveTestContext } from "../../context/cognitiveTestContext/cognitiveTestContext";
+
+import {
+  Container,
+  Form,
+  Box,
+  Break,
+  Row,
+  Percentis,
+  PercentisCard,
+} from "./styles";
+import { CognitiveTestContext } from "../../context/cognitiveTestContext";
+import { OctDataContext } from "../../context/octDataContext";
 
 function Results(props) {
   const cognitiveTestData = React.useContext(CognitiveTestContext);
+  const octData = React.useContext(OctDataContext);
 
   return (
     <Container>
       <label>Results / Summary:</label>
       <Form>
         <Box>
-          <label>Physician: {cognitiveTestData.physician}</label>
+          <label>Physician:</label>{" "}
+          <p>{cognitiveTestData.cognitiveTest.physician}</p>
         </Box>
         <Box>
-          <label>Patient: {cognitiveTestData.patitent}</label>
+          <label>Patient:</label>{" "}
+          <p>{cognitiveTestData.cognitiveTest.patient}</p>
         </Box>
         <Box>
-          <label>ID number: {cognitiveTestData.idNumber}</label>
+          <label>ID number:</label>{" "}
+          <p>{cognitiveTestData.cognitiveTest.idNumber}</p>
         </Box>
         <Box>
-          <label>Sex: {cognitiveTestData.sex}</label>
-          <label> Age: {cognitiveTestData.age}</label>
+          <label>Sex:</label> <p>{cognitiveTestData.cognitiveTest.sex}</p>
+          <label> Age:</label> <p>{cognitiveTestData.cognitiveTest.age}</p>
         </Box>
         <Box>
-          <label>Diagnosis: {cognitiveTestData.diagnosis}</label>
+          <label>Diagnosis:</label>{" "}
+          <p>{cognitiveTestData.cognitiveTest.diagnosis}</p>
         </Box>
       </Form>
       <Break />
@@ -40,9 +53,11 @@ function Results(props) {
         <div>
           <Box>
             <label>OD</label>
+            <p>{octData.octData.peripapillary.od}</p>
           </Box>
           <Box>
             <label>OS</label>
+            <p>{octData.octData.peripapillary.os}</p>
           </Box>
         </div>
         <PercentisCard>
@@ -72,9 +87,11 @@ function Results(props) {
         <div>
           <Box>
             <label>OD</label>
+            <p>{octData.octData.macular_thickness.od}</p>
           </Box>
           <Box>
             <label>OS</label>
+            <p>{octData.octData.macular_thickness.os}</p>
           </Box>
         </div>
         <PercentisCard>
@@ -104,9 +121,11 @@ function Results(props) {
         <div>
           <Box>
             <label>OD</label>
+            <p>{octData.octData.macular_volume.od}</p>
           </Box>
           <Box>
             <label>OS</label>
+            <p>{octData.octData.macular_volume.os}</p>
           </Box>
         </div>
         <PercentisCard>
@@ -136,9 +155,11 @@ function Results(props) {
         <div>
           <Box>
             <label>OD</label>
+            <p>{octData.octData.gcl_ipl.od}</p>
           </Box>
           <Box>
             <label>OS</label>
+            <p>{octData.octData.gcl_ipl.os}</p>
           </Box>
         </div>
         <PercentisCard>
@@ -168,9 +189,11 @@ function Results(props) {
         <div>
           <Box>
             <label>OD</label>
+            <p>{octData.octData.gcl_ipl_rnfl.od}</p>
           </Box>
           <Box>
             <label>OS</label>
+            <p>{octData.octData.gcl_ipl_rnfl.os}</p>
           </Box>
         </div>
         <PercentisCard>

@@ -1,5 +1,14 @@
 import styled from "styled-components";
 
+export const Container = styled.div`
+  padding: 20px;
+  margin: 0 10%;
+
+  @media (max-width:768px){
+    margin 0px;
+  }
+`;
+
 export const Form = styled.div`
   display: flex;
   flex-direction: column;

@@ -14,3 +14,11 @@ export const Footerpage = styled.div`
     font-weight: 700;
   }
 `;
+
+export const Miniature = styled.div`
+  background-color: ${colors.primary}
+  width: 30px;
+  height: 30px;
+  paddig: 5px;
+  border-radius: 50%;
+`;
