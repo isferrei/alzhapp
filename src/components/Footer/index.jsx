@@ -1,32 +1,34 @@
-import React from "react";
-import { Button } from "@material-ui/core";
-import { NavLink } from "react-router-dom";
-import { Footerpage, Miniature, StyledButton } from "./styles";
+import React from 'react';
+import { Button } from '@material-ui/core';
+import { NavLink } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUser, faEye, faPollH } from '@fortawesome/free-solid-svg-icons';
+import { Footerpage, Miniature, StyledButton } from './styles';
 
 function Footer() {
   return (
     <Footerpage>
-      <NavLink to="cognitive_test">
+      <NavLink to='cognitive_test'>
         <StyledButton>
           <Miniature>
-            <img src="../../icons/user.svg" />
+            <FontAwesomeIcon icon={faUser} size='lg' />
           </Miniature>
           <label>Patient Data</label>
         </StyledButton>
       </NavLink>
 
-      <NavLink to="oct_data">
+      <NavLink to='oct_data'>
         <StyledButton>
           <Miniature>
-            <img src="../../icons/user.svg" />
+            <FontAwesomeIcon icon={faEye} size='lg' />
           </Miniature>
           <label>OCT data</label>
         </StyledButton>
       </NavLink>
-      <NavLink to="results">
+      <NavLink to='results'>
         <StyledButton>
           <Miniature>
-            <img src="../../icons/user.svg" />
+            <FontAwesomeIcon icon={faPollH} size='lg' />
           </Miniature>
           <label>Results Summary</label>
         </StyledButton>

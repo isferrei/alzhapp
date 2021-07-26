@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import colors from "../../services/colors";
+import styled from 'styled-components';
+import colors from '../../services/colors';
 
 export const Footerpage = styled.div`
   width: 100%;
@@ -33,6 +33,9 @@ export const Miniature = styled.div`
   background-color: ${colors.primary};
   width: 50px;
   height: 50px;
-  paddig: 5px;
   border-radius: 50%;
+  color: ${colors.white};
+  display: flex;
+  place-items: center;
+  place-content: center;
 `;
