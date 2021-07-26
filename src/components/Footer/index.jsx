@@ -1,25 +1,35 @@
 import React from "react";
 import { Button } from "@material-ui/core";
 import { NavLink } from "react-router-dom";
-import { Footerpage, Miniature } from "./styles";
+import { Footerpage, Miniature, StyledButton } from "./styles";
 
 function Footer() {
   return (
     <Footerpage>
-      <NavLink to="/" end></NavLink>
-      <Miniature>
-        <img src="../../icons/user.svg" />
-      </Miniature>
-      <NavLink to="cognitive_test">Patient Data</NavLink>
+      <NavLink to="cognitive_test">
+        <StyledButton>
+          <Miniature>
+            <img src="../../icons/user.svg" />
+          </Miniature>
+          <label>Patient Data</label>
+        </StyledButton>
+      </NavLink>
+
       <NavLink to="oct_data">
-        <Button variant="contained" color="primary" href="#contained-buttons">
-          OCT data
-        </Button>
+        <StyledButton>
+          <Miniature>
+            <img src="../../icons/user.svg" />
+          </Miniature>
+          <label>OCT data</label>
+        </StyledButton>
       </NavLink>
       <NavLink to="results">
-        <Button variant="contained" color="primary" href="#contained-buttons">
-          Results Summary
-        </Button>
+        <StyledButton>
+          <Miniature>
+            <img src="../../icons/user.svg" />
+          </Miniature>
+          <label>Results Summary</label>
+        </StyledButton>
       </NavLink>
     </Footerpage>
   );
