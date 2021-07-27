@@ -4,6 +4,20 @@ export const Container = styled.div`
   padding: 20px;
   margin: 0 10%;
 
+  .select{
+    background-color: #fff;
+    margin-left: 15px;
+  }
+
+  .age-input{
+    margin-left: 25px;
+  }
+
+  .sex-input{
+    width: 150px;
+    margin-left: -10px;
+  }
+
   @media (max-width:768px){
     margin 0px;
   }
@@ -33,6 +47,7 @@ export const Box = styled.div`
     border: 1px solid #d8d8d8;
     border-radius: 5px;
   }
+
   input:focus {
     outline-color: #3a86ff;
   }

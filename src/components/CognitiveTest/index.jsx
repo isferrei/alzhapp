@@ -1,5 +1,5 @@
 import React from "react";
-import { Button } from "@material-ui/core";
+import { Button, InputLabel } from "@material-ui/core";
 import MenuItem from "@material-ui/core/MenuItem";
 import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
@@ -14,7 +14,10 @@ function CognitiveTest({ history }) {
   console.log(cognitiveTest);
   return (
     <Container>
-      <label>Please, enter the patient data:</label>
+      <label>
+        <strong>Please, enter the patient data:</strong>
+      </label>
+      <Break/>
       <Form>
         <Box>
           <label>Physician:</label>
@@ -56,6 +59,7 @@ function CognitiveTest({ history }) {
           <label>Sex:</label>
           <input
             type="text"
+            className="sex-input"
             onChange={(event) => {
               const value = event.target.value;
               setCognitiveTest({
@@ -63,24 +67,24 @@ function CognitiveTest({ history }) {
               });
             }}
           />
-          <label> Age:</label>
-          <input
-            type="text"
-            onChange={(event) => {
-              const value = event.target.value;
-              setCognitiveTest({
-                age: value,
-              });
-            }}
-          />
+          <div className="age-input">
+            <label> Age:</label>
+            <input
+              type="text"
+              onChange={(event) => {
+                const value = event.target.value;
+                setCognitiveTest({
+                  age: value,
+                });
+              }}
+            />
+          </div>
         </Box>
         <Box>
           <label>Diagnosis:</label>
-          <FormControl fullWidth variant="outlined">
+          <FormControl fullWidth variant="outlined" className="select">
             <Select
-              labelId="demo-simple-select-error-label"
-              id="demo-simple-select-error"
-              value={"Please select the Diagnosis"}
+              value={cognitiveTest.diagnosis}
               renderValue={(value) => `${value}`}
               onChange={(event) => {
                 const value = event.target.value;
@@ -89,7 +93,7 @@ function CognitiveTest({ history }) {
                 });
               }}
             >
-              <MenuItem value="" disabled>
+              <MenuItem value="Please select the Diagnosis:" selected>
                 <em>Please select the Diagnosis:</em>
               </MenuItem>
               <MenuItem value={"Dementia"}>Dementia</MenuItem>

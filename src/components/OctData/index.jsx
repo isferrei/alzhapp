@@ -96,7 +96,9 @@ function OctData(props) {
       const arr = percentisControle.find((percent) => percent.var === data);
 
       console.log(value);
-      if (value >= arr.p1 && value <= arr.p5) {
+      if (value < arr.p1) {
+        return <Percentis background={colors.red}>{`< p1`}</Percentis>;
+      } else if (value >= arr.p1 && value <= arr.p5) {
         return <Percentis background={colors.yellow}>p1-p5</Percentis>;
       } else if (value >= arr.p5 && value <= arr.p10) {
         return <Percentis background={colors.orange}>p5-p10</Percentis>;
@@ -157,9 +159,7 @@ function OctData(props) {
                   onChange={(event) => {
                     const value = event.target.value;
                     setOctData({
-                      peripapillary: {
-                        os: value,
-                      },
+                      peripapillary: { ...octData.peripapillary.od, os: value },
                     });
                   }}
                   onInput={(event) =>
