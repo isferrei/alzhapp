@@ -1,12 +1,12 @@
-import React from "react";
-import { Button, InputLabel } from "@material-ui/core";
-import MenuItem from "@material-ui/core/MenuItem";
-import FormControl from "@material-ui/core/FormControl";
-import Select from "@material-ui/core/Select";
-import { Container, Form, Box, Break } from "./styles";
-import { CognitiveTestContext } from "../../context/cognitiveTestContext";
-import { Route, Link, BrowserRouter } from "react-router-dom";
-import { OctData } from "..";
+import React from 'react';
+import { Button, InputLabel } from '@material-ui/core';
+import MenuItem from '@material-ui/core/MenuItem';
+import FormControl from '@material-ui/core/FormControl';
+import Select from '@material-ui/core/Select';
+import { Container, Form, Box, Break, NextButton } from './styles';
+import { CognitiveTestContext } from '../../context/cognitiveTestContext';
+import { Route, Link, BrowserRouter } from 'react-router-dom';
+import { OctData } from '..';
 
 function CognitiveTest({ history }) {
   const { cognitiveTest, setCognitiveTest } =
@@ -17,12 +17,12 @@ function CognitiveTest({ history }) {
       <label>
         <strong>Please, enter the patient data:</strong>
       </label>
-      <Break/>
+      <Break />
       <Form>
         <Box>
           <label>Physician:</label>
           <input
-            type="text"
+            type='text'
             onChange={(event) => {
               const value = event.target.value;
               setCognitiveTest({
@@ -34,7 +34,7 @@ function CognitiveTest({ history }) {
         <Box>
           <label>Patient:</label>
           <input
-            type="text"
+            type='text'
             onChange={(event) => {
               const value = event.target.value;
               setCognitiveTest({
@@ -46,7 +46,7 @@ function CognitiveTest({ history }) {
         <Box>
           <label>ID number:</label>
           <input
-            type="text"
+            type='text'
             onChange={(event) => {
               const value = event.target.value;
               setCognitiveTest({
@@ -58,8 +58,8 @@ function CognitiveTest({ history }) {
         <Box>
           <label>Sex:</label>
           <input
-            type="text"
-            className="sex-input"
+            type='text'
+            className='sex-input'
             onChange={(event) => {
               const value = event.target.value;
               setCognitiveTest({
@@ -67,10 +67,10 @@ function CognitiveTest({ history }) {
               });
             }}
           />
-          <div className="age-input">
+          <div className='age-input'>
             <label> Age:</label>
             <input
-              type="text"
+              type='text'
               onChange={(event) => {
                 const value = event.target.value;
                 setCognitiveTest({
@@ -82,7 +82,7 @@ function CognitiveTest({ history }) {
         </Box>
         <Box>
           <label>Diagnosis:</label>
-          <FormControl fullWidth variant="outlined" className="select">
+          <FormControl fullWidth variant='outlined' className='select'>
             <Select
               value={cognitiveTest.diagnosis}
               renderValue={(value) => `${value}`}
@@ -93,14 +93,14 @@ function CognitiveTest({ history }) {
                 });
               }}
             >
-              <MenuItem value="Please select the Diagnosis:" selected>
+              <MenuItem value='Please select the Diagnosis:' selected>
                 <em>Please select the Diagnosis:</em>
               </MenuItem>
-              <MenuItem value={"Dementia"}>Dementia</MenuItem>
+              <MenuItem value={'Dementia'}>Dementia</MenuItem>
               <MenuItem value={"Parkinson's disease"}>
                 Parkinson's disease
               </MenuItem>
-              <MenuItem value={"Mild cognitive impairment"}>
+              <MenuItem value={'Mild cognitive impairment'}>
                 Mild cognitive impairment
               </MenuItem>
               <MenuItem value={"Alzheimer's disease"}>
@@ -112,7 +112,7 @@ function CognitiveTest({ history }) {
         <Box>
           <label>Cognitive test A:</label>
           <input
-            type="text"
+            type='text'
             onChange={(event) => {
               const value = event.target.value;
               setCognitiveTest({
@@ -124,7 +124,7 @@ function CognitiveTest({ history }) {
         <Box>
           <label>Score value:</label>
           <input
-            type="text"
+            type='text'
             onChange={(event) => {
               const value = event.target.value;
               setCognitiveTest({
@@ -136,7 +136,7 @@ function CognitiveTest({ history }) {
         <Box>
           <label>Cognitive test B:</label>
           <input
-            type="text"
+            type='text'
             onChange={(event) => {
               const value = event.target.value;
               setCognitiveTest({
@@ -148,7 +148,7 @@ function CognitiveTest({ history }) {
         <Box>
           <label>Score value:</label>
           <input
-            type="text"
+            type='text'
             onChange={(event) => {
               const value = event.target.value;
               setCognitiveTest({
@@ -160,7 +160,7 @@ function CognitiveTest({ history }) {
         <Box>
           <label>Ocular disease:</label>
           <input
-            type="text"
+            type='text'
             onChange={(event) => {
               const value = event.target.value;
               setCognitiveTest({
@@ -172,7 +172,7 @@ function CognitiveTest({ history }) {
         <Box>
           <label>OCT model:</label>
           <input
-            type="text"
+            type='text'
             onChange={(event) => {
               const value = event.target.value;
               setCognitiveTest({
@@ -184,15 +184,21 @@ function CognitiveTest({ history }) {
       </Form>
       <Break />
 
-      <BrowserRouter>
-        <Link to="/oct_data">
-          <Button variant="contained" color="primary" href="#contained-buttons">
-            OCT data
-          </Button>
-        </Link>
+      <NextButton>
+        <BrowserRouter>
+          <Link to='/oct_data'>
+            <Button
+              variant='contained'
+              color='primary'
+              href='#contained-buttons'
+            >
+              OCT data
+            </Button>
+          </Link>
 
-        <Route path="/oct_data" component={OctData} />
-      </BrowserRouter>
+          <Route path='/oct_data' component={OctData} />
+        </BrowserRouter>
+      </NextButton>
     </Container>
   );
 }

@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 import {
   Container,
@@ -8,28 +8,55 @@ import {
   Row,
   Percentis,
   PercentisCard,
-} from "./styles";
-import { CognitiveTestContext } from "../../context/cognitiveTestContext";
-import { OctDataContext } from "../../context/octDataContext";
+} from './styles';
+import { CognitiveTestContext } from '../../context/cognitiveTestContext';
+import { OctDataContext } from '../../context/octDataContext';
+import { colors, percentisControle } from '../../services';
 
 function Results(props) {
   const cognitiveTestData = React.useContext(CognitiveTestContext);
   const octData = React.useContext(OctDataContext);
+
+  function handlePercentis(data, value) {
+    if (percentisControle.find((percent) => percent.var === data)) {
+      const arr = percentisControle.find((percent) => percent.var === data);
+
+      if (value < arr.p1) {
+        return <Percentis background={colors.red}>{`< p1`}</Percentis>;
+      } else if (value >= arr.p1 && value <= arr.p5) {
+        return <Percentis background={colors.yellow}>p1-p5</Percentis>;
+      } else if (value >= arr.p5 && value <= arr.p10) {
+        return <Percentis background={colors.orange}>p5-p10</Percentis>;
+      } else if (value >= arr.p10 && value <= arr.p25) {
+        return <Percentis background={colors.green}>p10-p25</Percentis>;
+      } else if (value >= arr.p25 && value <= arr.p50) {
+        return <Percentis background={colors.green}>p25-p50</Percentis>;
+      } else if (value >= arr.p50 && value <= arr.p75) {
+        return <Percentis background={colors.green}>p50-p75</Percentis>;
+      } else if (value >= arr.p75 && value <= arr.p90) {
+        return <Percentis background={colors.green}>p75-p90</Percentis>;
+      } else if (value >= arr.p90 && value <= arr.p95) {
+        return <Percentis background={colors.green}>p90-p95</Percentis>;
+      } else if (value >= arr.p95 && value <= arr.p99) {
+        return <Percentis background={colors.white}>p95-p99</Percentis>;
+      }
+    }
+  }
 
   return (
     <Container>
       <label>Results / Summary:</label>
       <Form>
         <Box>
-          <label>Physician:</label>{" "}
+          <label>Physician:</label>{' '}
           <p>{cognitiveTestData.cognitiveTest.physician}</p>
         </Box>
         <Box>
-          <label>Patient:</label>{" "}
+          <label>Patient:</label>{' '}
           <p>{cognitiveTestData.cognitiveTest.patient}</p>
         </Box>
         <Box>
-          <label>ID number:</label>{" "}
+          <label>ID number:</label>{' '}
           <p>{cognitiveTestData.cognitiveTest.idNumber}</p>
         </Box>
         <Box>
@@ -37,7 +64,7 @@ function Results(props) {
           <label> Age:</label> <p>{cognitiveTestData.cognitiveTest.age}</p>
         </Box>
         <Box>
-          <label>Diagnosis:</label>{" "}
+          <label>Diagnosis:</label>{' '}
           <p>{cognitiveTestData.cognitiveTest.diagnosis}</p>
         </Box>
       </Form>
@@ -65,7 +92,7 @@ function Results(props) {
             <tr>
               <td>
                 <label>Controls</label>
-                <Percentis>{}</Percentis>
+                {octData.peripOdPerc ? octData.peripOdPerc : <Percentis />}
               </td>
             </tr>
             <tr></tr>
@@ -73,7 +100,7 @@ function Results(props) {
             <tr></tr>
             <tr>
               <td>
-                <Percentis>p25-p50</Percentis>
+                {octData.peripOsPerc ? octData.peripOsPerc : <Percentis />}
               </td>
             </tr>
           </table>
@@ -99,7 +126,11 @@ function Results(props) {
             <tr>
               <td>
                 <label>Controls</label>
-                <Percentis></Percentis>
+                {octData.totalMacularOdPerc ? (
+                  octData.totalMacularOdPerc
+                ) : (
+                  <Percentis />
+                )}
               </td>
             </tr>
             <tr></tr>
@@ -107,7 +138,11 @@ function Results(props) {
             <tr></tr>
             <tr>
               <td>
-                <Percentis></Percentis>
+                {octData.totalMacularOsPerc ? (
+                  octData.totalMacularOsPerc
+                ) : (
+                  <Percentis />
+                )}
               </td>
             </tr>
           </table>
@@ -133,7 +168,11 @@ function Results(props) {
             <tr>
               <td>
                 <label>Controls</label>
-                <Percentis></Percentis>
+                {octData.macularVolOdPerc ? (
+                  octData.macularVolOdPerc
+                ) : (
+                  <Percentis />
+                )}
               </td>
             </tr>
             <tr></tr>
@@ -141,7 +180,11 @@ function Results(props) {
             <tr></tr>
             <tr>
               <td>
-                <Percentis></Percentis>
+                {octData.macularVolOsPerc ? (
+                  octData.macularVolOsPerc
+                ) : (
+                  <Percentis />
+                )}
               </td>
             </tr>
           </table>
@@ -167,7 +210,7 @@ function Results(props) {
             <tr>
               <td>
                 <label>Controls</label>
-                <Percentis></Percentis>
+                {octData.gclIplOdPerc ? octData.gclIplOdPerc : <Percentis />}
               </td>
             </tr>
             <tr></tr>
@@ -175,7 +218,8 @@ function Results(props) {
             <tr></tr>
             <tr>
               <td>
-                <Percentis></Percentis>
+                {' '}
+                {octData.gclIplOsPerc ? octData.gclIplOsPerc : <Percentis />}
               </td>
             </tr>
           </table>
@@ -201,8 +245,14 @@ function Results(props) {
             <tr>
               <td>
                 <label>Controls</label>
-                <Percentis></Percentis>
+                {octData.gclIplRnflOdPerc ? octData.gclIplRnflOdPerc : <Percentis />}
               </td>
+            </tr>
+            <tr></tr>
+            <tr></tr>
+            <tr></tr>
+            <tr>
+              <td>{octData.gclIplRnflOsPerc ? octData.gclIplRnflOsPerc : <Percentis />}</td>
             </tr>
           </table>
         </PercentisCard>

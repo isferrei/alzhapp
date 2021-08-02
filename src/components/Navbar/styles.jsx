@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import colors from "../../services/colors";
+import styled from 'styled-components';
+import { colors } from '../../services';
 
 export const Card = styled.div`
   background-color: ${colors.primary};

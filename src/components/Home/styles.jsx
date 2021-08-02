@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import colors from "../../services/colors";
+import {colors} from "../../services";
 
 export const Homepage = styled.div`
   height: 30vh;

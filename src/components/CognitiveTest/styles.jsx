@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const Container = styled.div`
   padding: 20px;
@@ -21,6 +21,10 @@ export const Container = styled.div`
   @media (max-width:768px){
     margin 0px;
   }
+`;
+
+export const NextButton = styled.div`
+  text-align: center;
 `;
 
 export const Form = styled.div`

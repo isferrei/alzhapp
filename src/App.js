@@ -13,6 +13,7 @@ import {
 import "./App.css";
 
 function App({ history }) {
+ 
   return (
     <>
       <CognitiveProvider>
