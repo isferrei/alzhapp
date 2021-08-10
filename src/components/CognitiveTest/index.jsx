@@ -11,7 +11,7 @@ import { OctData } from '..';
 function CognitiveTest({ history }) {
   const { cognitiveTest, setCognitiveTest } =
     React.useContext(CognitiveTestContext);
-  console.log(cognitiveTest);
+
   return (
     <Container>
       <label>

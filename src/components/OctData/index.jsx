@@ -70,14 +70,14 @@ function OctData(props) {
               <Box>
                 <label>OD</label>
                 <input
-                  type='text'
-                  id='peripapillary'
+                  type="text"
+                  id="peripapillary"
                   onChange={(event) => {
                     const value = event.target.value;
                     setOctData({
                       peripapillary: {
                         od: value,
-                        os: '',
+                        os: "",
                       },
                     });
                   }}
@@ -87,12 +87,13 @@ function OctData(props) {
                     )
                   }
                 />
+                μm
               </Box>
               <Box>
                 <label>OS</label>
                 <input
-                  type='text'
-                  id='peripapillary'
+                  type="text"
+                  id="peripapillary"
                   onChange={(event) => {
                     const value = event.target.value;
                     setOctData({
@@ -105,6 +106,7 @@ function OctData(props) {
                     )
                   }
                 />
+                μm
               </Box>
             </div>
             <PercentisCard>
@@ -134,8 +136,8 @@ function OctData(props) {
               <Box>
                 <label>OD</label>
                 <input
-                  type='text'
-                  id='total_macular'
+                  type="text"
+                  id="total_macular"
                   onChange={(event) => {
                     const value = event.target.value;
                     setOctData({
@@ -150,12 +152,13 @@ function OctData(props) {
                     )
                   }
                 />
+                μm
               </Box>
               <Box>
                 <label>OS</label>
                 <input
-                  type='text'
-                  id='total_macular'
+                  type="text"
+                  id="total_macular"
                   onChange={(event) => {
                     const value = event.target.value;
                     setOctData({
@@ -170,6 +173,7 @@ function OctData(props) {
                     )
                   }
                 />
+                μm
               </Box>
             </div>
             <PercentisCard>
@@ -201,8 +205,8 @@ function OctData(props) {
               <Box>
                 <label>OD</label>
                 <input
-                  type='text'
-                  id='macular_volume'
+                  type="text"
+                  id="macular_volume"
                   onChange={(event) => {
                     const value = event.target.value;
                     setOctData({
@@ -217,12 +221,13 @@ function OctData(props) {
                     )
                   }
                 />
+                mm³
               </Box>
               <Box>
                 <label>OS</label>
                 <input
-                  type='text'
-                  id='macular_volume'
+                  type="text"
+                  id="macular_volume"
                   onChange={(event) => {
                     const value = event.target.value;
                     setOctData({
@@ -237,6 +242,7 @@ function OctData(props) {
                     )
                   }
                 />
+                mm³
               </Box>
             </div>
             <PercentisCard>
@@ -266,8 +272,8 @@ function OctData(props) {
               <Box>
                 <label>OD</label>
                 <input
-                  type='text'
-                  id='GLC/IPL'
+                  type="text"
+                  id="GLC/IPL"
                   onChange={(event) => {
                     const value = event.target.value;
                     setOctData({
@@ -282,12 +288,13 @@ function OctData(props) {
                     )
                   }
                 />
+                μm
               </Box>
               <Box>
                 <label>OS</label>
                 <input
-                  type='text'
-                  id='GLC/IPL'
+                  type="text"
+                  id="GLC/IPL"
                   onChange={(event) => {
                     const value = event.target.value;
                     setOctData({
@@ -302,6 +309,7 @@ function OctData(props) {
                     )
                   }
                 />
+                μm
               </Box>
             </div>
             <PercentisCard>
@@ -331,8 +339,8 @@ function OctData(props) {
               <Box>
                 <label>OD</label>
                 <input
-                  type='text'
-                  id='GLC/IPL/RNFL'
+                  type="text"
+                  id="GLC/IPL/RNFL"
                   onChange={(event) => {
                     const value = event.target.value;
                     setOctData({
@@ -347,12 +355,13 @@ function OctData(props) {
                     )
                   }
                 />
+                μm
               </Box>
               <Box>
                 <label>OS</label>
                 <input
-                  type='text'
-                  id='GLC/IPL/RNFL'
+                  type="text"
+                  id="GLC/IPL/RNFL"
                   onChange={(event) => {
                     const value = event.target.value;
                     setOctData({
@@ -367,6 +376,7 @@ function OctData(props) {
                     )
                   }
                 />
+                μm
               </Box>
             </div>
             <PercentisCard>
@@ -391,17 +401,17 @@ function OctData(props) {
       </Container>
       <NextButton>
         <BrowserRouter>
-          <Link to='/results'>
+          <Link to="/results">
             <Button
-              variant='contained'
-              color='primary'
-              href='#contained-buttons'
+              variant="contained"
+              color="primary"
+              href="#contained-buttons"
             >
               Generate Results
             </Button>
           </Link>
 
-          <Route path='/results' component={Results} />
+          <Route path="/results" component={Results} />
         </BrowserRouter>
       </NextButton>
     </>
