@@ -19,6 +19,24 @@ export const Form = styled.div`
   width: 500px;
 `;
 
+export const Title = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+
+  div {
+    line-height: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+  }
+
+  img {
+    width: 80px;
+    height: 80px;
+  }
+`;
+
 export const Break = styled.div`
   margin-top: 20px;
 `;

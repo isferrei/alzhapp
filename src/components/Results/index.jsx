@@ -39,6 +39,8 @@ function Results(props) {
         return <Percentis background={colors.green}>p90-p95</Percentis>;
       } else if (value >= arr.p95 && value <= arr.p99) {
         return <Percentis background={colors.white}>p95-p99</Percentis>;
+      } else if (value > arr.p99) {
+        return <Percentis background={colors.white}>{`> p99`}</Percentis>;
       }
     }
   }
@@ -245,14 +247,24 @@ function Results(props) {
             <tr>
               <td>
                 <label>Controls</label>
-                {octData.gclIplRnflOdPerc ? octData.gclIplRnflOdPerc : <Percentis />}
+                {octData.gclIplRnflOdPerc ? (
+                  octData.gclIplRnflOdPerc
+                ) : (
+                  <Percentis />
+                )}
               </td>
             </tr>
             <tr></tr>
             <tr></tr>
             <tr></tr>
             <tr>
-              <td>{octData.gclIplRnflOsPerc ? octData.gclIplRnflOsPerc : <Percentis />}</td>
+              <td>
+                {octData.gclIplRnflOsPerc ? (
+                  octData.gclIplRnflOsPerc
+                ) : (
+                  <Percentis />
+                )}
+              </td>
             </tr>
           </table>
         </PercentisCard>
