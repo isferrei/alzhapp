@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { colors } from '../../services';
 
 export const Container = styled.div`
   padding: 20px;
@@ -16,6 +17,20 @@ export const Container = styled.div`
   .sex-input{
     width: 150px;
     margin-left: -10px;
+  }
+
+  button{
+    margin-top: 10px;
+    background-color: ${colors.primary};
+    color: ${colors.white};
+    padding: 15px;
+    border-radius: 50px;
+    border: none;
+    cursor: pointer;
+
+    &:hover{
+      background-color: #009CCC;
+    }
   }
 
   @media (max-width:768px){

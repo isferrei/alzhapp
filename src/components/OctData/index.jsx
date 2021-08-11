@@ -21,17 +21,30 @@ import graph2 from '../../img/graph2.png';
 import graph3 from '../../img/graph3.png';
 
 function OctData(props) {
-  const { octData, setOctData } = React.useContext(OctDataContext);
-  const [peripOsPerc, setPeripOsPerc] = React.useState();
-  const [peripOdPerc, setPeripOdPerc] = React.useState();
-  const [totalMacularOdPerc, setTotalMacularOdPerc] = React.useState();
-  const [totalMacularOsPerc, setTotalMacularOsPerc] = React.useState();
-  const [macularVolOdPerc, setMacularVolOdPerc] = React.useState();
-  const [macularVolOsPerc, setMacularVolOsPerc] = React.useState();
-  const [gclIplOdPerc, setGclIplOdPerc] = React.useState();
-  const [gclIplOsPerc, setGclIplOsPerc] = React.useState();
-  const [gclIplRnflOdPerc, setGclIplRnflOdPerc] = React.useState();
-  const [gclIplRnflOsPerc, setGclIplRnflOsPerc] = React.useState();
+  const {
+    octData,
+    setOctData,
+    setGclIplRnflOdPerc,
+    gclIplRnflOdPerc,
+    gclIplRnflOsPerc,
+    setGclIplRnflOsPerc,
+    gclIplOsPerc,
+    setGclIplOsPerc,
+    gclIplOdPerc,
+    setGclIplOdPerc,
+    macularVolOsPerc,
+    setMacularVolOsPerc,
+    macularVolOdPerc,
+    setMacularVolOdPerc,
+    totalMacularOsPerc,
+    setTotalMacularOsPerc,
+    totalMacularOdPerc,
+    setTotalMacularOdPerc,
+    peripOdPerc,
+    setPeripOdPerc,
+    peripOsPerc,
+    setPeripOsPerc,
+  } = React.useContext(OctDataContext);
 
   function handlePercentis(data, value) {
     if (percentisControle.find((percent) => percent.var === data)) {
@@ -292,7 +305,7 @@ function OctData(props) {
                 <label>OD</label>
                 <input
                   type='text'
-                  id='GLC/IPL'
+                  id='GCL/IPL'
                   onChange={(event) => {
                     const value = event.target.value;
                     setOctData({
@@ -313,7 +326,7 @@ function OctData(props) {
                 <label>OS</label>
                 <input
                   type='text'
-                  id='GLC/IPL'
+                  id='GCL/IPL'
                   onChange={(event) => {
                     const value = event.target.value;
                     setOctData({
@@ -362,7 +375,7 @@ function OctData(props) {
                 <label>OD</label>
                 <input
                   type='text'
-                  id='GLC/IPL/RNFL'
+                  id='GCL/IPL/RNFL'
                   onChange={(event) => {
                     const value = event.target.value;
                     setOctData({
@@ -383,7 +396,7 @@ function OctData(props) {
                 <label>OS</label>
                 <input
                   type='text'
-                  id='GLC/IPL/RNFL'
+                  id='GCL/IPL/RNFL'
                   onChange={(event) => {
                     const value = event.target.value;
                     setOctData({
@@ -424,13 +437,7 @@ function OctData(props) {
       <NextButton>
         <BrowserRouter>
           <Link to='/results'>
-            <Button
-              variant='contained'
-              color='primary'
-              href='#contained-buttons'
-            >
-              Generate Results
-            </Button>
+            <button href='#contained-buttons'>Generate Results</button>
           </Link>
 
           <Route path='/results' component={Results} />

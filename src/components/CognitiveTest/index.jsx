@@ -1,5 +1,4 @@
 import React from 'react';
-import { Button, InputLabel } from '@material-ui/core';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
@@ -187,13 +186,7 @@ function CognitiveTest({ history }) {
       <NextButton>
         <BrowserRouter>
           <Link to='/oct_data'>
-            <Button
-              variant='contained'
-              color='primary'
-              href='#contained-buttons'
-            >
-              OCT data
-            </Button>
+            <button href='#contained-buttons'>OCT data</button>
           </Link>
 
           <Route path='/oct_data' component={OctData} />

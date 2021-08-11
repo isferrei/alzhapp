@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { colors } from '../../services';
 
 export const Container = styled.div`
   padding: 20px;
@@ -7,10 +8,29 @@ export const Container = styled.div`
   @media (max-width:768px){
     margin 0px;
   }
+
+  
+
 `;
 
 export const NextButton = styled.div`
-  text-align: center;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+
+  button {
+    background-color: ${colors.primary};
+    color: ${colors.white};
+    padding: 15px;
+    border-radius: 50px;
+    border: none;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #009ccc;
+    }
+  }
 `;
 
 export const Form = styled.div`
