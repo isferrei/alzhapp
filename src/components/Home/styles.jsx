@@ -1,8 +1,8 @@
 import styled from "styled-components";
-import {colors} from "../../services";
+import { colors } from "../../services";
 
 export const Homepage = styled.div`
-  height: 30vh;
+  height: 45vh;
   margin: 0 auto;
   background-color: ${colors.white};
   justify-content: center;

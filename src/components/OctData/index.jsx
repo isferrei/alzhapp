@@ -1,5 +1,4 @@
-import React from 'react';
-import { Button } from '@material-ui/core';
+import React, { useReducer } from "react";
 import {
   Container,
   Form,
@@ -10,15 +9,16 @@ import {
   PercentisCard,
   NextButton,
   Title,
-} from './styles';
-import { defaultReducer } from '../../reducers';
-import { colors, percentisControle } from '../../services';
-import { Route, Link, BrowserRouter } from 'react-router-dom';
-import { Results } from '../../components';
-import { OctDataContext } from '../../context/octDataContext';
-import graph1 from '../../img/graph1.png';
-import graph2 from '../../img/graph2.png';
-import graph3 from '../../img/graph3.png';
+  PercentisImg,
+} from "./styles";
+import { colors, percentisControle } from "../../services";
+import { Route, Link, BrowserRouter } from "react-router-dom";
+import { Results } from "../../components";
+import { OctDataContext } from "../../context/octDataContext";
+import graph1 from "../../img/graph1.png";
+import graph2 from "../../img/graph2.png";
+import graph3 from "../../img/graph3.png";
+import percentis from "../../img/percentis.svg";
 
 function OctData(props) {
   const {
@@ -77,12 +77,12 @@ function OctData(props) {
   return (
     <>
       <Container>
-        <label>OCT Data</label>
+        <h3>OCT Data</h3>
         <Break />
         <Title>
           <img src={graph1} />
           <div>
-            <strong>Peripapillary RNFL</strong>{' '}
+            <strong>Peripapillary RNFL</strong>{" "}
             <p>Average thickness (in microns)</p>
           </div>
         </Title>
@@ -93,14 +93,14 @@ function OctData(props) {
               <Box>
                 <label>OD</label>
                 <input
-                  type='text'
-                  id='peripapillary'
+                  type="text"
+                  id="peripapillary"
                   onChange={(event) => {
                     const value = event.target.value;
                     setOctData({
                       peripapillary: {
                         od: value,
-                        os: '',
+                        os: octData.peripapillary.os,
                       },
                     });
                   }}
@@ -115,12 +115,15 @@ function OctData(props) {
               <Box>
                 <label>OS</label>
                 <input
-                  type='text'
-                  id='peripapillary'
+                  type="text"
+                  id="peripapillary"
                   onChange={(event) => {
                     const value = event.target.value;
                     setOctData({
-                      peripapillary: { ...octData.peripapillary.od, os: value },
+                      peripapillary: {
+                        od: octData.peripapillary.od,
+                        os: value,
+                      },
                     });
                   }}
                   onInput={(event) =>
@@ -147,6 +150,9 @@ function OctData(props) {
                   <td>{peripOsPerc ? peripOsPerc : <Percentis />}</td>
                 </tr>
               </table>
+              <PercentisImg>
+                <img src={percentis} width="40px" />
+              </PercentisImg>
             </PercentisCard>
           </Row>
           <Break />
@@ -162,13 +168,14 @@ function OctData(props) {
               <Box>
                 <label>OD</label>
                 <input
-                  type='text'
-                  id='total_macular'
+                  type="text"
+                  id="total_macular"
                   onChange={(event) => {
                     const value = event.target.value;
                     setOctData({
                       macular_thickness: {
                         od: value,
+                        os: octData.macular_thickness.os,
                       },
                     });
                   }}
@@ -183,12 +190,13 @@ function OctData(props) {
               <Box>
                 <label>OS</label>
                 <input
-                  type='text'
-                  id='total_macular'
+                  type="text"
+                  id="total_macular"
                   onChange={(event) => {
                     const value = event.target.value;
                     setOctData({
                       macular_thickness: {
+                        od: octData.macular_thickness.od,
                         os: value,
                       },
                     });
@@ -219,6 +227,9 @@ function OctData(props) {
                   </td>
                 </tr>
               </table>
+              <PercentisImg>
+                <img src={percentis} width="40px" />
+              </PercentisImg>
             </PercentisCard>
           </Row>
           <Break />
@@ -226,7 +237,7 @@ function OctData(props) {
             <img src={graph2} />
             <div>
               <strong>Macular volume</strong>
-              <p>Average volume (in mm3)</p>
+              <p>Average volume (in mm³)</p>
             </div>
           </Title>
           <Row>
@@ -234,13 +245,14 @@ function OctData(props) {
               <Box>
                 <label>OD</label>
                 <input
-                  type='text'
-                  id='macular_volume'
+                  type="text"
+                  id="macular_volume"
                   onChange={(event) => {
                     const value = event.target.value;
                     setOctData({
                       macular_volume: {
                         od: value,
+                        os: octData.macular_volume.os,
                       },
                     });
                   }}
@@ -255,12 +267,13 @@ function OctData(props) {
               <Box>
                 <label>OS</label>
                 <input
-                  type='text'
-                  id='macular_volume'
+                  type="text"
+                  id="macular_volume"
                   onChange={(event) => {
                     const value = event.target.value;
                     setOctData({
                       macular_volume: {
+                        od: octData.macular_volume.od,
                         os: value,
                       },
                     });
@@ -289,6 +302,9 @@ function OctData(props) {
                   <td>{macularVolOsPerc ? macularVolOsPerc : <Percentis />}</td>
                 </tr>
               </table>
+              <PercentisImg>
+                <img src={percentis} width="40px" />
+              </PercentisImg>
             </PercentisCard>
           </Row>
           <Break />
@@ -304,13 +320,14 @@ function OctData(props) {
               <Box>
                 <label>OD</label>
                 <input
-                  type='text'
-                  id='GCL/IPL'
+                  type="text"
+                  id="GCL/IPL"
                   onChange={(event) => {
                     const value = event.target.value;
                     setOctData({
                       gcl_ipl: {
                         od: value,
+                        os: octData.gcl_ipl.os,
                       },
                     });
                   }}
@@ -325,12 +342,13 @@ function OctData(props) {
               <Box>
                 <label>OS</label>
                 <input
-                  type='text'
-                  id='GCL/IPL'
+                  type="text"
+                  id="GCL/IPL"
                   onChange={(event) => {
                     const value = event.target.value;
                     setOctData({
                       gcl_ipl: {
+                        od: octData.gcl_ipl.od,
                         os: value,
                       },
                     });
@@ -359,6 +377,9 @@ function OctData(props) {
                   <td> {gclIplOsPerc ? gclIplOsPerc : <Percentis />}</td>
                 </tr>
               </table>
+              <PercentisImg>
+                <img src={percentis} width="40px" />
+              </PercentisImg>
             </PercentisCard>
           </Row>
           <Break />
@@ -374,13 +395,14 @@ function OctData(props) {
               <Box>
                 <label>OD</label>
                 <input
-                  type='text'
-                  id='GCL/IPL/RNFL'
+                  type="text"
+                  id="GCL/IPL/RNFL"
                   onChange={(event) => {
                     const value = event.target.value;
                     setOctData({
                       gcl_ipl_rnfl: {
-                        od: parseInt(value),
+                        od: value,
+                        os: octData.gcl_ipl_rnfl.os,
                       },
                     });
                   }}
@@ -395,12 +417,13 @@ function OctData(props) {
               <Box>
                 <label>OS</label>
                 <input
-                  type='text'
-                  id='GCL/IPL/RNFL'
+                  type="text"
+                  id="GCL/IPL/RNFL"
                   onChange={(event) => {
                     const value = event.target.value;
                     setOctData({
                       gcl_ipl_rnfl: {
+                        od: octData.gcl_ipl_rnfl.od,
                         os: value,
                       },
                     });
@@ -429,6 +452,9 @@ function OctData(props) {
                   <td>{gclIplRnflOsPerc ? gclIplRnflOsPerc : <Percentis />}</td>
                 </tr>
               </table>
+              <PercentisImg>
+                <img src={percentis} width="40px" />
+              </PercentisImg>
             </PercentisCard>
           </Row>
         </Form>
@@ -436,11 +462,11 @@ function OctData(props) {
       </Container>
       <NextButton>
         <BrowserRouter>
-          <Link to='/results'>
-            <button href='#contained-buttons'>Generate Results</button>
+          <Link to="/results">
+            <button href="#contained-buttons">Generate Results</button>
           </Link>
 
-          <Route path='/results' component={Results} />
+          <Route path="/results" component={Results} />
         </BrowserRouter>
       </NextButton>
     </>

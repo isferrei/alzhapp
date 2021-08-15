@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 import {
   Container,
@@ -8,31 +8,31 @@ import {
   Row,
   Percentis,
   PercentisCard,
-} from './styles';
-import { CognitiveTestContext } from '../../context/cognitiveTestContext';
-import { OctDataContext } from '../../context/octDataContext';
-import { colors, percentisControle } from '../../services';
+  PrintButton,
+} from "./styles";
+import { CognitiveTestContext } from "../../context/cognitiveTestContext";
+import { OctDataContext } from "../../context/octDataContext";
+import { colors, percentisControle } from "../../services";
+import print from "../../icons/print.svg";
 
 function Results(props) {
   const cognitiveTestData = React.useContext(CognitiveTestContext);
   const octData = React.useContext(OctDataContext);
-
-  console.log(octData);
 
   return (
     <Container>
       <label>Results / Summary:</label>
       <Form>
         <Box>
-          <label>Physician:</label>{' '}
+          <label>Physician:</label>{" "}
           <p>{cognitiveTestData.cognitiveTest.physician}</p>
         </Box>
         <Box>
-          <label>Patient:</label>{' '}
+          <label>Patient:</label>{" "}
           <p>{cognitiveTestData.cognitiveTest.patient}</p>
         </Box>
         <Box>
-          <label>ID number:</label>{' '}
+          <label>ID number:</label>{" "}
           <p>{cognitiveTestData.cognitiveTest.idNumber}</p>
         </Box>
         <Box>
@@ -40,7 +40,7 @@ function Results(props) {
           <label> Age:</label> <p>{cognitiveTestData.cognitiveTest.age}</p>
         </Box>
         <Box>
-          <label>Diagnosis:</label>{' '}
+          <label>Diagnosis:</label>{" "}
           <p>{cognitiveTestData.cognitiveTest.diagnosis}</p>
         </Box>
       </Form>
@@ -56,11 +56,11 @@ function Results(props) {
         <div>
           <Box>
             <label>OD</label>
-            <p>{octData.octData.peripapillary.od}</p>
+            <p>{octData.octData.peripapillary.od} μm</p>
           </Box>
           <Box>
             <label>OS</label>
-            <p>{octData.octData.peripapillary.os}</p>
+            <p>{octData.octData.peripapillary.os} μm</p>
           </Box>
         </div>
         <PercentisCard>
@@ -90,11 +90,11 @@ function Results(props) {
         <div>
           <Box>
             <label>OD</label>
-            <p>{octData.octData.macular_thickness.od}</p>
+            <p>{octData.octData.macular_thickness.od} μm</p>
           </Box>
           <Box>
             <label>OS</label>
-            <p>{octData.octData.macular_thickness.os}</p>
+            <p>{octData.octData.macular_thickness.os} μm</p>
           </Box>
         </div>
         <PercentisCard>
@@ -126,17 +126,17 @@ function Results(props) {
       </Row>
       <Break />
       <label>
-        <strong>Macular volume (in mm3)</strong>
+        <strong>Macular volume (in mm³)</strong>
       </label>
       <Row>
         <div>
           <Box>
             <label>OD</label>
-            <p>{octData.octData.macular_volume.od}</p>
+            <p>{octData.octData.macular_volume.od} mm³</p>
           </Box>
           <Box>
             <label>OS</label>
-            <p>{octData.octData.macular_volume.os}</p>
+            <p>{octData.octData.macular_volume.os} mm³</p>
           </Box>
         </div>
         <PercentisCard>
@@ -174,11 +174,11 @@ function Results(props) {
         <div>
           <Box>
             <label>OD</label>
-            <p>{octData.octData.gcl_ipl.od}</p>
+            <p>{octData.octData.gcl_ipl.od} μm</p>
           </Box>
           <Box>
             <label>OS</label>
-            <p>{octData.octData.gcl_ipl.os}</p>
+            <p>{octData.octData.gcl_ipl.os} μm</p>
           </Box>
         </div>
         <PercentisCard>
@@ -194,7 +194,7 @@ function Results(props) {
             <tr></tr>
             <tr>
               <td>
-                {' '}
+                {" "}
                 {octData.gclIplOsPerc ? octData.gclIplOsPerc : <Percentis />}
               </td>
             </tr>
@@ -209,11 +209,11 @@ function Results(props) {
         <div>
           <Box>
             <label>OD</label>
-            <p>{octData.octData.gcl_ipl_rnfl.od}</p>
+            <p>{octData.octData.gcl_ipl_rnfl.od} μm</p>
           </Box>
           <Box>
             <label>OS</label>
-            <p>{octData.octData.gcl_ipl_rnfl.os}</p>
+            <p>{octData.octData.gcl_ipl_rnfl.os} μm</p>
           </Box>
         </div>
         <PercentisCard>
@@ -243,6 +243,10 @@ function Results(props) {
           </table>
         </PercentisCard>
       </Row>
+      <PrintButton>
+        <img src={print} width="25px" height="25px" />
+        Print
+      </PrintButton>
     </Container>
   );
 }

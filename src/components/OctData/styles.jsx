@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import { colors } from '../../services';
+import styled from "styled-components";
+import { colors } from "../../services";
 
 export const Container = styled.div`
   padding: 20px;
@@ -61,10 +61,15 @@ export const Break = styled.div`
   margin-top: 20px;
 `;
 
+export const PercentisImg = styled.div`
+  margin-left: 20px;
+`;
 export const PercentisCard = styled.div`
   margin-left: 20px;
   align-self: center;
-
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
   td {
     text-align: center;
     font-size: 0.8rem;

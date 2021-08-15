@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import { colors } from '../../services';
+import styled from "styled-components";
+import { colors } from "../../services";
 
 export const Card = styled.div`
   background-color: ${colors.primary};
@@ -10,9 +10,22 @@ export const Card = styled.div`
   font-weight: 500;
   padding: 20px 0px;
   margin: 0 auto;
+  display: flex;
+  flex-direction: row;
 
   a {
-    color: ${colors.white};
+    color: ${colors.black};
     text-decoration: none;
+  }
+`;
+
+export const Icon = styled.div`
+  display: flex;
+  position: absolute;
+  right: 30px;
+  cursor: pointer;
+
+  img {
+    fill: ${colors.white} !important;
   }
 `;

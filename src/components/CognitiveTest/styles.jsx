@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import { colors } from '../../services';
+import styled from "styled-components";
+import { colors } from "../../services";
 
 export const Container = styled.div`
   padding: 20px;
@@ -8,9 +8,16 @@ export const Container = styled.div`
   .select{
     background-color: #fff;
     margin-left: 15px;
+    
+    input {
+      padding-top: 13px !important;
+      height: 13px !important;
+    }
   }
 
-  .age-input{
+
+  
+    .age-input{
     margin-left: 25px;
   }
 

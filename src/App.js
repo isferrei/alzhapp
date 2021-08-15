@@ -9,11 +9,13 @@ import {
   Navbar,
   Home,
   Footer,
+  Info,
+  References,
+  Disclaimer,
 } from "./components";
 import "./App.css";
 
 function App({ history }) {
- 
   return (
     <>
       <CognitiveProvider>
@@ -24,6 +26,10 @@ function App({ history }) {
             <Route path="/oct_data" component={OctData} />
             <Route path="/results" component={Results} />
             <Route path="/cognitive_test" component={CognitiveTest} />
+            <Route path="/info" component={Info} />
+            <Route path="/references" component={References} />
+            <Route path="/disclaimer" component={Disclaimer} />
+
             <Footer />
           </BrowserRouter>
         </OctProvider>
