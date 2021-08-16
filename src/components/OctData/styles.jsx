@@ -78,6 +78,8 @@ export const PercentisCard = styled.div`
   display: flex;
   flex-direction: row;
   align-items: flex-start;
+  place-items: center;
+
   td {
     text-align: center;
     font-size: 0.8rem;

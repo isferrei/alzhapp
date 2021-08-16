@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import {colors} from '../../services';
+import styled from "styled-components";
+import { colors } from "../../services";
 
 export const Footerpage = styled.div`
   width: 100%;
@@ -11,6 +11,10 @@ export const Footerpage = styled.div`
   display: flex;
   justify-content: space-evenly;
   flex-direction: row;
+
+  a {
+    text-decoration: none !important;
+  }
 
   p {
     font-size: 14px;
@@ -24,8 +28,9 @@ export const StyledButton = styled.div`
   text-decoration: none;
   flex-direction: column;
   align-items: center;
+
   label {
-    text-decoration: none;
+    text-decoration: none !important;
   }
 `;
 
