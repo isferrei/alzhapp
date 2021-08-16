@@ -1,4 +1,4 @@
-import React, { useReducer } from "react";
+import React from "react";
 import {
   Container,
   Form,
@@ -12,8 +12,7 @@ import {
   PercentisImg,
 } from "./styles";
 import { colors, percentisControle } from "../../services";
-import { Route, Link, BrowserRouter } from "react-router-dom";
-import { Results } from "../../components";
+import { NavLink } from "react-router-dom";
 import { OctDataContext } from "../../context/octDataContext";
 import graph1 from "../../img/graph1.png";
 import graph2 from "../../img/graph2.png";
@@ -80,9 +79,9 @@ function OctData(props) {
         <h3>OCT Data</h3>
         <Break />
         <Title>
-          <img src={graph1} />
+          <img src={graph1} alt="OCT data peripapillary graphic" />
           <div>
-            <strong>Peripapillary RNFL</strong>{" "}
+            <strong>Peripapillary RNFL</strong>
             <p>Average thickness (in microns)</p>
           </div>
         </Title>
@@ -151,13 +150,13 @@ function OctData(props) {
                 </tr>
               </table>
               <PercentisImg>
-                <img src={percentis} width="40px" />
+                <img src={percentis} width="40px" alt="Percentage graphic" />
               </PercentisImg>
             </PercentisCard>
           </Row>
           <Break />
           <Title>
-            <img src={graph2} />
+            <img src={graph2} alt="Total retinal thickness graphic" />
             <div>
               <strong>Total retinal thickness(ILM/RPE)</strong>
               <p>Total macular thickness (in microns)</p>
@@ -228,13 +227,13 @@ function OctData(props) {
                 </tr>
               </table>
               <PercentisImg>
-                <img src={percentis} width="40px" />
+                <img src={percentis} width="40px" alt="Percentage graphic" />
               </PercentisImg>
             </PercentisCard>
           </Row>
           <Break />
           <Title>
-            <img src={graph2} />
+            <img src={graph2} alt="OCT data macular volume graphic" />
             <div>
               <strong>Macular volume</strong>
               <p>Average volume (in mm³)</p>
@@ -303,13 +302,13 @@ function OctData(props) {
                 </tr>
               </table>
               <PercentisImg>
-                <img src={percentis} width="40px" />
+                <img src={percentis} alt="Percentage graphic" width="40px" />
               </PercentisImg>
             </PercentisCard>
           </Row>
           <Break />
           <Title>
-            <img src={graph3} />
+            <img src={graph3} alt="OCT data GCL/IPL thickness graphic" />
             <div>
               <strong>GCL/IPL thickness</strong>
               <p>Average thickness (in microns)</p>
@@ -378,13 +377,13 @@ function OctData(props) {
                 </tr>
               </table>
               <PercentisImg>
-                <img src={percentis} width="40px" />
+                <img src={percentis} alt="Percentage graphic" width="40px" />
               </PercentisImg>
             </PercentisCard>
           </Row>
           <Break />
           <Title>
-            <img src={graph3} />
+            <img src={graph3} alt="OCT data GCL/IPL/RNFL thickness graphic" />
             <div>
               <strong>GCL/IPL/RNFL thickness</strong>
               <p>Average thickness (in microns)</p>
@@ -453,7 +452,7 @@ function OctData(props) {
                 </tr>
               </table>
               <PercentisImg>
-                <img src={percentis} width="40px" />
+                <img src={percentis} width="40px" alt="Percentage graphic" />
               </PercentisImg>
             </PercentisCard>
           </Row>
@@ -461,13 +460,9 @@ function OctData(props) {
         <Break />
       </Container>
       <NextButton>
-        <BrowserRouter>
-          <Link to="/results">
-            <button href="#contained-buttons">Generate Results</button>
-          </Link>
-
-          <Route path="/results" component={Results} />
-        </BrowserRouter>
+        <NavLink to="/results">
+          <button href="#contained-buttons">Generate Results</button>
+        </NavLink>
       </NextButton>
     </>
   );

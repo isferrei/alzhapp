@@ -44,7 +44,7 @@ function Navbar() {
 
   return (
     <Card>
-      <NavLink to="/" end style={{ color: "#fff" }}>
+      <NavLink to="/home" end style={{ color: "#fff" }}>
         AlzhApp
       </NavLink>
       <Icon
@@ -53,7 +53,7 @@ function Navbar() {
         aria-haspopup="true"
         onClick={handleToggle}
       >
-        <img src={menu} width="35px" height="35px" />
+        <img src={menu} alt="menu icon" width="35px" height="35px" />
       </Icon>
       <Popper
         open={open}

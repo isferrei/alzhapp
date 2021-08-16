@@ -13,7 +13,7 @@ export const Container = styled.div`
 export const Form = styled.div`
   display: flex;
   flex-direction: column;
-  width: 500px;
+  width: 100%;
 `;
 
 export const Break = styled.div`
@@ -46,6 +46,10 @@ export const Box = styled.div`
   flex-direction: row;
   align-items: center;
 
+  .label-age{
+    margin-left: 20px;
+  }
+
   label {
     margin-right: 10px;
   }
@@ -74,11 +78,12 @@ export const PrintButton = styled.div`
   margin-bottom: 30px;
   background-color: ${colors.primary};
   color: ${colors.white};
-  padding: 15px;
+  padding: 10px;
   border-radius: 50px;
   border: none;
   cursor: pointer;
-  margin: 0 auto; 
+  margin: 0 auto;
+  height: 20px;
 
   img {
     margin-right: 20px;

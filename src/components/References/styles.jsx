@@ -6,6 +6,10 @@ export const Container = styled.div`
   border: 1px solid #f8f8f8;
   font-weight: 600;
 
+  @media only screen and (max-width: 768px) {
+    padding: 20px 20px;
+  }
+
   .pos {
     position: absolute;
     z-index: 0;
@@ -13,7 +17,7 @@ export const Container = styled.div`
     top: 0px;
   }
 
-  div{
+  div {
     box-shadow: 0px 3px 6px #d8d8d8;
     padding: 20px;
   }

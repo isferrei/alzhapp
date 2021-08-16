@@ -1,7 +1,7 @@
 import React from "react";
 import { CognitiveProvider } from "./context/cognitiveTestContext";
 import { OctProvider } from "./context/octDataContext";
-import { Route, BrowserRouter } from "react-router-dom";
+import { Route, BrowserRouter, Redirect } from "react-router-dom";
 import {
   CognitiveTest,
   OctData,
@@ -22,7 +22,8 @@ function App({ history }) {
         <OctProvider>
           <BrowserRouter>
             <Navbar />
-            <Route path="/" component={Home} />
+            <Redirect from="/" to="/home" />
+            <Route path="/home" component={Home} />
             <Route path="/oct_data" component={OctData} />
             <Route path="/results" component={Results} />
             <Route path="/cognitive_test" component={CognitiveTest} />

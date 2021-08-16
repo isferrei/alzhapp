@@ -5,7 +5,7 @@ import alzhlogo from '../../img/alzhlogo.svg';
 function Home() {
   return (
     <Homepage>
-      <img src={alzhlogo} width='200px' />
+      <img src={alzhlogo} alt='Alzh risk calculator logo' width='200px' />
       <h2>AlzhApp</h2>
       <Subtitle>ALZHEIMER RISK CALCULATOR</Subtitle>
       <p>Enter patient data information</p>

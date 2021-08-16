@@ -4,8 +4,7 @@ import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
 import { Container, Form, Box, Break, NextButton } from "./styles";
 import { CognitiveTestContext } from "../../context/cognitiveTestContext";
-import { Route, Link, BrowserRouter } from "react-router-dom";
-import { OctData } from "..";
+import { NavLink } from "react-router-dom";
 
 function CognitiveTest({ history }) {
   const { cognitiveTest, setCognitiveTest } =
@@ -55,17 +54,18 @@ function CognitiveTest({ history }) {
           />
         </Box>
         <Box>
-          <label>Sex:</label>
-          <input
-            type="text"
-            className="sex-input"
-            onChange={(event) => {
-              const value = event.target.value;
-              setCognitiveTest({
-                sex: value,
-              });
-            }}
-          />
+          <div className="sex-input">
+            <label>Sex:</label>
+            <input
+              type="text"
+              onChange={(event) => {
+                const value = event.target.value;
+                setCognitiveTest({
+                  sex: value,
+                });
+              }}
+            />
+          </div>
           <div className="age-input">
             <label> Age:</label>
             <input
@@ -197,13 +197,9 @@ function CognitiveTest({ history }) {
       <Break />
 
       <NextButton>
-        <BrowserRouter>
-          <Link to="/oct_data">
-            <button href="#contained-buttons">OCT data</button>
-          </Link>
-
-          <Route path="/oct_data" component={OctData} />
-        </BrowserRouter>
+        <NavLink to="/oct_data">
+          <button href="#contained-buttons">OCT data</button>
+        </NavLink>
       </NextButton>
     </Container>
   );

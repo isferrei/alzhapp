@@ -9,8 +9,10 @@ export const Container = styled.div`
     margin 0px;
   }
 
-  
-
+      @media (max-width:425px) {
+      line-height: 18px;
+      font-size: 14px;
+    }
 `;
 
 export const NextButton = styled.div`
@@ -26,6 +28,7 @@ export const NextButton = styled.div`
     border-radius: 50px;
     border: none;
     cursor: pointer;
+    width: 250px;
 
     &:hover {
       background-color: #009ccc;
@@ -36,7 +39,7 @@ export const NextButton = styled.div`
 export const Form = styled.div`
   display: flex;
   flex-direction: column;
-  width: 500px;
+  width: 100%;
 `;
 
 export const Title = styled.div`
@@ -49,6 +52,11 @@ export const Title = styled.div`
     display: flex;
     flex-direction: column;
     align-items: end;
+
+    @media (max-width: 425px) {
+      line-height: 18px;
+      font-size: 14px;
+    }
   }
 
   img {

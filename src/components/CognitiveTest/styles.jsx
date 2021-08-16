@@ -6,7 +6,7 @@ export const Container = styled.div`
   margin: 0 10%;
 
   .select{
-    background-color: #fff;
+    background-color: ${colors.white};
     margin-left: 15px;
     
     input {
@@ -17,13 +17,29 @@ export const Container = styled.div`
 
 
   
-    .age-input{
-    margin-left: 25px;
+  .age-input{
+    margin-right: 44%;
+    align-items:center;
+    display: flex;
+    flex-direction: row;   
+
+      @media only screen and (max-width: 425px) {
+        margin-left: 50px;  
+        margin-right: 5px;
+        width: 100px
+      }
   }
 
   .sex-input{
     width: 150px;
-    margin-left: -10px;
+    margin-left: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items:center;
+
+    @media only screen and (max-width: 425px) {
+      width: 150px
+    }
   }
 
   button{
@@ -47,12 +63,16 @@ export const Container = styled.div`
 
 export const NextButton = styled.div`
   text-align: center;
+
+  button {
+    width: 250px;
+  }
 `;
 
 export const Form = styled.div`
   display: flex;
   flex-direction: column;
-  width: 500px;
+  width: 100%;
 `;
 
 export const Break = styled.div`

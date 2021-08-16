@@ -66,15 +66,21 @@ function Info() {
         <br />
         Curriculum vitae
         <br />
-        <a href="http://lattes.cnpq.br/6107543569545222">
-          http://lattes.cnpq.br/6107543569545222
-        </a>
-        <a href="https://www.researchgate.net/profile/Leonardo_Cun ha2">
-          https://www.researchgate.net/profile/Leonardo_Cun ha2
-        </a>
+        <h5>
+          <a href="http://lattes.cnpq.br/6107543569545222">
+            http://lattes.cnpq.br/6107543569545222
+          </a>
+        </h5>
+        <h5>
+          <a href="https://www.researchgate.net/profile/Leonardo_Cun ha2">
+            https://www.researchgate.net/profile/Leonardo_Cun ha2
+          </a>
+        </h5>
+        <h5>
         <a href="http://www.somos.ufjf.edu.br/professores/view/1298">
           http://www.somos.ufjf.edu.br/professores/view/1298
         </a>
+        </h5>
       </p>
     </Container>
   );
