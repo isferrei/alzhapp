@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/static/css/main.32e45f96.chunk.css",
-    "main.js": "/static/js/main.8aa80663.chunk.js",
-    "main.js.map": "/static/js/main.8aa80663.chunk.js.map",
+    "main.js": "/static/js/main.da550c67.chunk.js",
+    "main.js.map": "/static/js/main.da550c67.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.bcfdf618.js",
     "runtime-main.js.map": "/static/js/runtime-main.bcfdf618.js.map",
     "static/js/2.2cd9c3ea.chunk.js": "/static/js/2.2cd9c3ea.chunk.js",
@@ -14,13 +14,13 @@
     "static/js/2.2cd9c3ea.chunk.js.LICENSE.txt": "/static/js/2.2cd9c3ea.chunk.js.LICENSE.txt",
     "static/media/alzhlogo.caf7f57c.svg": "/static/media/alzhlogo.caf7f57c.svg",
     "static/media/menu.697c688d.svg": "/static/media/menu.697c688d.svg",
-    "static/media/percentis.2fa22f6e.svg": "/static/media/percentis.2fa22f6e.svg",
+    "static/media/percentis.354f0000.svg": "/static/media/percentis.354f0000.svg",
     "static/media/print.b3c9557b.svg": "/static/media/print.b3c9557b.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.bcfdf618.js",
     "static/js/2.2cd9c3ea.chunk.js",
     "static/css/main.32e45f96.chunk.css",
-    "static/js/main.8aa80663.chunk.js"
+    "static/js/main.da550c67.chunk.js"
   ]
 }
