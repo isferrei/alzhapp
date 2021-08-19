@@ -10,6 +10,12 @@ export const Container = styled.div`
   }
 `;
 
+export const Column = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+`;
+
 export const Form = styled.div`
   display: flex;
   flex-direction: column;
@@ -17,7 +23,7 @@ export const Form = styled.div`
 `;
 
 export const Break = styled.div`
-  margin-top: 20px;
+  margin-top: 15px;
 `;
 
 export const PercentisCard = styled.div`
@@ -41,12 +47,12 @@ export const Row = styled.div`
 `;
 
 export const Box = styled.div`
-  margin-top: 10px;
   display: flex;
   flex-direction: row;
   align-items: center;
+  height: 35px;
 
-  .label-age{
+  .label-age {
     margin-left: 20px;
   }
 
@@ -56,17 +62,6 @@ export const Box = styled.div`
 
   p {
     font-weight: 700;
-  }
-
-  input {
-    width: 60%;
-    margin-left: 15px;
-    padding: 10px;
-    border: 1px solid #d8d8d8;
-    border-radius: 5px;
-  }
-  input:focus {
-    outline-color: #3a86ff;
   }
 `;
 export const PrintButton = styled.div`

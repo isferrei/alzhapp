@@ -10,6 +10,7 @@ import {
   NextButton,
   Title,
   PercentisImg,
+  Footer,
 } from "./styles";
 import { colors, percentisControle } from "../../services";
 import { NavLink } from "react-router-dom";
@@ -464,6 +465,13 @@ function OctData(props) {
           <button href="#contained-buttons">Generate Results</button>
         </NavLink>
       </NextButton>
+      <Footer>
+        <p>
+          <b>RNFL</b>: retinal nerve fiber laser, <b>ILM</b>: internal limiting
+          membrane, <b>RPE</b>: retinal pigment epithelium, <b>mm3</b>: cubic
+          millimeters, <b>μm</b>: micron, <b>GCL</b>: ganglion cell layer, <b>IPL</b>: inner plexiform layer
+        </p>
+      </Footer>
     </>
   );
 }

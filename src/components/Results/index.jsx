@@ -9,6 +9,7 @@ import {
   Percentis,
   PercentisCard,
   PrintButton,
+  Column
 } from "./styles";
 import { CognitiveTestContext } from "../../context/cognitiveTestContext";
 import { OctDataContext } from "../../context/octDataContext";
@@ -52,8 +53,7 @@ function Results() {
             <label>Diagnosis:</label>{" "}
             <p>{cognitiveTestData.cognitiveTest.diagnosis}</p>
           </Box>
-        </Form>
-        <Break />
+        </Form> 
         <center>
           <h4>Average Analysis Report</h4>
         </center>
@@ -62,7 +62,7 @@ function Results() {
           <strong>Peripapillary RNFL (in microns)</strong>
         </label>
         <Row>
-          <div>
+          <Column>
             <Box>
               <label>OD</label>
               <p>{octData.octData.peripapillary.od} μm</p>
@@ -71,7 +71,7 @@ function Results() {
               <label>OS</label>
               <p>{octData.octData.peripapillary.os} μm</p>
             </Box>
-          </div>
+          </Column>
           <PercentisCard>
             <table>
               <tr>
@@ -96,7 +96,7 @@ function Results() {
           <strong>Total macular thickness (in microns)</strong>
         </label>
         <Row>
-          <div>
+          <Column>
             <Box>
               <label>OD</label>
               <p>{octData.octData.macular_thickness.od} μm</p>
@@ -105,7 +105,7 @@ function Results() {
               <label>OS</label>
               <p>{octData.octData.macular_thickness.os} μm</p>
             </Box>
-          </div>
+          </Column>
           <PercentisCard>
             <table>
               <tr>
@@ -138,7 +138,7 @@ function Results() {
           <strong>Macular volume (in mm³)</strong>
         </label>
         <Row>
-          <div>
+          <Column>
             <Box>
               <label>OD</label>
               <p>{octData.octData.macular_volume.od} mm³</p>
@@ -147,7 +147,7 @@ function Results() {
               <label>OS</label>
               <p>{octData.octData.macular_volume.os} mm³</p>
             </Box>
-          </div>
+          </Column>
           <PercentisCard>
             <table>
               <tr>
@@ -180,7 +180,7 @@ function Results() {
           <strong>GCL/IPL thickness (in microns)</strong>
         </label>
         <Row>
-          <div>
+          <Column>
             <Box>
               <label>OD</label>
               <p>{octData.octData.gcl_ipl.od} μm</p>
@@ -189,7 +189,7 @@ function Results() {
               <label>OS</label>
               <p>{octData.octData.gcl_ipl.os} μm</p>
             </Box>
-          </div>
+          </Column>
           <PercentisCard>
             <table>
               <tr>
@@ -215,7 +215,7 @@ function Results() {
           <strong>GCL/IPL/RNFL (in microns)</strong>
         </label>
         <Row>
-          <div>
+          <Column>
             <Box>
               <label>OD</label>
               <p>{octData.octData.gcl_ipl_rnfl.od} μm</p>
@@ -224,7 +224,7 @@ function Results() {
               <label>OS</label>
               <p>{octData.octData.gcl_ipl_rnfl.os} μm</p>
             </Box>
-          </div>
+          </Column>
           <PercentisCard>
             <table>
               <tr>
@@ -255,7 +255,7 @@ function Results() {
       </Container>
       <PrintButton onClick={handlePrint}>
         <img src={print} alt="print icon" width="20px" height="20px" />
-        Print
+        Print / Save
       </PrintButton>
     </>
   );

@@ -116,3 +116,15 @@ export const Box = styled.div`
     outline-color: #3a86ff;
   }
 `;
+
+export const Footer = styled.div`
+  padding: 10px;
+  width: 82%;
+  margin-left: 8%;
+  background-color: white;
+  margin-bottom: 10px;
+
+  @media (max-width: 425px) {
+    margin-left: 5.5%;
+  }
+`;
