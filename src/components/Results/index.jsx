@@ -33,27 +33,51 @@ function Results() {
         </center>
         <Form>
           <Box>
-            <label>Physician:</label>{" "}
+            <label>Physician:</label>{' '}
             <p>{cognitiveTestData.cognitiveTest.physician}</p>
           </Box>
           <Box>
-            <label>Patient:</label>{" "}
+            <label>Patient:</label>{' '}
             <p>{cognitiveTestData.cognitiveTest.patient}</p>
           </Box>
           <Box>
-            <label>ID number:</label>{" "}
+            <label>ID number:</label>{' '}
             <p>{cognitiveTestData.cognitiveTest.idNumber}</p>
           </Box>
           <Box>
             <label>Sex:</label> <p>{cognitiveTestData.cognitiveTest.sex}</p>
-            <label className="label-age"> Age:</label>
+            <label className='label-age'> Age:</label>
             <p>{cognitiveTestData.cognitiveTest.age}</p>
           </Box>
           <Box>
-            <label>Diagnosis:</label>{" "}
+            <label>Diagnosis:</label>{' '}
             <p>{cognitiveTestData.cognitiveTest.diagnosis}</p>
           </Box>
-        </Form> 
+          <Box>
+            <label>Cognitive test A:</label>{' '}
+            <p>{cognitiveTestData.cognitiveTest.cognitiveTestA}</p>
+          </Box>
+          <Box>
+            <label>Score value:</label>{' '}
+            <p>{cognitiveTestData.cognitiveTest.scoreA}</p>
+          </Box>
+          <Box>
+            <label>Cognitive test B:</label>{' '}
+            <p>{cognitiveTestData.cognitiveTest.cognitiveTestB}</p>
+          </Box>
+          <Box>
+            <label>Score value:</label>{' '}
+            <p>{cognitiveTestData.cognitiveTest.scoreB}</p>
+          </Box>
+          <Box>
+            <label>Ocular disease:</label>{' '}
+            <p>{cognitiveTestData.cognitiveTest.ocularDisease}</p>
+          </Box>
+          <Box>
+            <label>OCT Model:</label>{' '}
+            <p>{cognitiveTestData.cognitiveTest.octModel}</p>
+          </Box>
+        </Form>
         <center>
           <h4>Average Analysis Report</h4>
         </center>
@@ -203,7 +227,7 @@ function Results() {
               <tr></tr>
               <tr>
                 <td>
-                  {" "}
+                  {' '}
                   {octData.gclIplOsPerc ? octData.gclIplOsPerc : <Percentis />}
                 </td>
               </tr>
@@ -254,7 +278,7 @@ function Results() {
         </Row>
       </Container>
       <PrintButton onClick={handlePrint}>
-        <img src={print} alt="print icon" width="20px" height="20px" />
+        <img src={print} alt='print icon' width='20px' height='20px' />
         Print / Save
       </PrintButton>
     </>

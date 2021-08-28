@@ -467,7 +467,7 @@ function OctData(props) {
       </NextButton>
       <Footer>
         <p>
-          <b>RNFL</b>: retinal nerve fiber laser, <b>ILM</b>: internal limiting
+          <b>RNFL</b>: retinal nerve fiber layer, <b>ILM</b>: internal limiting
           membrane, <b>RPE</b>: retinal pigment epithelium, <b>mm3</b>: cubic
           millimeters, <b>μm</b>: micron, <b>GCL</b>: ganglion cell layer, <b>IPL</b>: inner plexiform layer
         </p>
