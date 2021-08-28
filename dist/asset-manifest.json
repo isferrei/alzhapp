@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/static/css/main.32e45f96.chunk.css",
-    "main.js": "/static/js/main.f1f09165.chunk.js",
-    "main.js.map": "/static/js/main.f1f09165.chunk.js.map",
+    "main.css": "/static/css/main.5e21d4f4.chunk.css",
+    "main.js": "/static/js/main.753d55fc.chunk.js",
+    "main.js.map": "/static/js/main.753d55fc.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.bcfdf618.js",
     "runtime-main.js.map": "/static/js/runtime-main.bcfdf618.js.map",
     "static/js/2.44fe0adf.chunk.js": "/static/js/2.44fe0adf.chunk.js",
@@ -10,17 +10,17 @@
     "static/js/3.29cbfd72.chunk.js": "/static/js/3.29cbfd72.chunk.js",
     "static/js/3.29cbfd72.chunk.js.map": "/static/js/3.29cbfd72.chunk.js.map",
     "index.html": "/index.html",
-    "static/css/main.32e45f96.chunk.css.map": "/static/css/main.32e45f96.chunk.css.map",
+    "static/css/main.5e21d4f4.chunk.css.map": "/static/css/main.5e21d4f4.chunk.css.map",
     "static/js/2.44fe0adf.chunk.js.LICENSE.txt": "/static/js/2.44fe0adf.chunk.js.LICENSE.txt",
-    "static/media/alzhlogo.caf7f57c.svg": "/static/media/alzhlogo.caf7f57c.svg",
+    "static/media/alzhlogo.e00e0a63.svg": "/static/media/alzhlogo.e00e0a63.svg",
     "static/media/menu.697c688d.svg": "/static/media/menu.697c688d.svg",
-    "static/media/percentis.354f0000.svg": "/static/media/percentis.354f0000.svg",
+    "static/media/percentis.9120aa47.svg": "/static/media/percentis.9120aa47.svg",
     "static/media/print.b3c9557b.svg": "/static/media/print.b3c9557b.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.bcfdf618.js",
     "static/js/2.44fe0adf.chunk.js",
-    "static/css/main.32e45f96.chunk.css",
-    "static/js/main.f1f09165.chunk.js"
+    "static/css/main.5e21d4f4.chunk.css",
+    "static/js/main.753d55fc.chunk.js"
   ]
 }
