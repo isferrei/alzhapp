@@ -1,7 +1,7 @@
-import React from "react";
-import { CognitiveProvider } from "./context/cognitiveTestContext";
-import { OctProvider } from "./context/octDataContext";
-import { Route, BrowserRouter, Redirect } from "react-router-dom";
+import React from 'react';
+import { CognitiveProvider } from './context/cognitiveTestContext';
+import { OctProvider } from './context/octDataContext';
+import { Route, BrowserRouter, Redirect } from 'react-router-dom';
 import {
   CognitiveTest,
   OctData,
@@ -12,8 +12,8 @@ import {
   Info,
   References,
   Disclaimer,
-} from "./components";
-import "./App.css";
+} from './components';
+import './App.css';
 
 function App({ history }) {
   return (
@@ -22,14 +22,14 @@ function App({ history }) {
         <OctProvider>
           <BrowserRouter>
             <Navbar />
-            <Redirect from="/" to="/home" />
-            <Route path="/home" component={Home} />
-            <Route path="/oct_data" component={OctData} />
-            <Route path="/results" component={Results} />
-            <Route path="/cognitive_test" component={CognitiveTest} />
-            <Route path="/info" component={Info} />
-            <Route path="/references" component={References} />
-            <Route path="/disclaimer" component={Disclaimer} />
+            <Redirect from='/' to='/home' />
+            <Route path='/home' component={Home} />
+            <Route path='/oct_data' component={OctData} />
+            <Route path='/results' component={Results} />
+            <Route path='/cognitive_test' component={CognitiveTest} />
+            <Route path='/info' component={Info} />
+            <Route path='/references' component={References} />
+            <Route path='/disclaimer' component={Disclaimer} />
 
             <Footer />
           </BrowserRouter>
