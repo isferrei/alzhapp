@@ -1,7 +1,7 @@
 {
   "name": "publicalbum-embed-player",
   "version": "0.1.0",
-  "homepage": "https://alzhapp.web.app/",
+  "homepage": "https://alzhapp.com/",
   "devDependencies": {
     "babel-core": "^6.26.3",
     "babel-preset-env": "^1.7.0",
