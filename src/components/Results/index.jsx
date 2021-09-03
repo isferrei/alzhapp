@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 import {
   Container,
@@ -10,82 +10,96 @@ import {
   PercentisCard,
   PrintButton,
   Column,
-} from "./styles";
-import { CognitiveTestContext } from "../../context/cognitiveTestContext";
-import { OctDataContext } from "../../context/octDataContext";
-import print from "../../icons/print.svg";
-import { useReactToPrint } from "react-to-print";
+} from './styles';
+import { CognitiveTestContext } from '../../context/cognitiveTestContext';
+import { OctDataContext } from '../../context/octDataContext';
+import print from '../../icons/print.svg';
+import { useReactToPrint } from 'react-to-print';
+import {
+  PDFDownloadLink,
+  Page,
+  Text,
+  View,
+  Document,
+} from '@react-pdf/renderer';
 
 function Results() {
   const cognitiveTestData = React.useContext(CognitiveTestContext);
   const octData = React.useContext(OctDataContext);
   const resultsRef = React.useRef();
 
-  function handlePrint(id) {
-    const result = document.getElementById("results").innerHTML;
-    var myWindow = window.open("", "Results", "height=400,width=600");
-    myWindow.document.write("<html><head>");
-    myWindow.document.write("</head><body>");
-    myWindow.document.write(result);
-    myWindow.document.write("</body></html>");
-    myWindow.document.close(); // necessary for IE >= 10
+  const handlePrint = useReactToPrint({
+    content: () => resultsRef.current,
+  });
 
-    myWindow.onload = function () {
-      myWindow.focus();
-      myWindow.print();
-    };
-  }
+  const MyDoc = () => (
+    <Document>
+      <Page>
+        <View>
+          <Text>Physician:</Text>
+          <Text>
+            {octData.peripOdPerc ? octData.peripOdPerc : <Percentis />}
+          </Text>
+        </View>
+      </Page>
+    </Document>
+  );
 
   return (
     <>
-      <Container id="results" ref={resultsRef}>
+      <Container ref={resultsRef}>
+        <PDFDownloadLink document={<MyDoc />} fileName='somename.pdf'>
+          {({ blob, url, loading, error }) =>
+            loading ? 'Loading document...' : 'Download now!'
+          }
+        </PDFDownloadLink>
         <center>
           <h4>Results / Summary:</h4>
         </center>
         <Form>
           <Box>
-            <label>Physician:</label>{" "}
+            <label>Physician:</label>{' '}
             <p>{cognitiveTestData.cognitiveTest.physician}</p>
           </Box>
           <Box>
-            <label>Patient:</label>{" "}
+            <label>Patient:</label>{' '}
             <p>{cognitiveTestData.cognitiveTest.patient}</p>
           </Box>
           <Box>
-            <label>ID number:</label>{" "}
+            <label>ID number:</label>{' '}
             <p>{cognitiveTestData.cognitiveTest.idNumber}</p>
           </Box>
           <Box>
             <label>Sex:</label> <p>{cognitiveTestData.cognitiveTest.sex}</p>
-            <label className="label-age"> Age:</label>
+            <label className='label-age'> Age:</label>
             <p>{cognitiveTestData.cognitiveTest.age}</p>
           </Box>
           <Box>
-            <label>Diagnosis:</label>{" "}
+            <label>Diagnosis:</label>{' '}
             <p>{cognitiveTestData.cognitiveTest.diagnosis}</p>
           </Box>
           <Box>
-            <label>Cognitive test A:</label>{" "}
+            <label>Cognitive test A:</label>{' '}
             <p>{cognitiveTestData.cognitiveTest.cognitiveTestA}</p>
           </Box>
           <Box>
-            <label>Score value:</label>{" "}
+            <label>Score value:</label>{' '}
             <p>{cognitiveTestData.cognitiveTest.scoreA}</p>
           </Box>
           <Box>
-            <label>Cognitive test B:</label>{" "}
+            <label>Cognitive test B:</label>{' '}
             <p>{cognitiveTestData.cognitiveTest.cognitiveTestB}</p>
           </Box>
           <Box>
-            <label>Score value:</label>{" "}
+            <label>Score value:</label>{' '}
             <p>{cognitiveTestData.cognitiveTest.scoreB}</p>
           </Box>
           <Box>
-            <label>Ocular disease:</label>{" "}
+            <label>Ocular disease:</label>{' '}
             <p>{cognitiveTestData.cognitiveTest.ocularDisease}</p>
           </Box>
           <Box>
-            <label>OCT Model:</label>{" "}
+            <label>OCT Model:</label>{' '}
             <p>{cognitiveTestData.cognitiveTest.octModel}</p>
           </Box>
         </Form>
@@ -238,7 +252,7 @@ function Results() {
               <tr></tr>
               <tr>
                 <td>
-                  {" "}
+                  {' '}
                   {octData.gclIplOsPerc ? octData.gclIplOsPerc : <Percentis />}
                 </td>
               </tr>
@@ -288,8 +302,8 @@ function Results() {
           </PercentisCard>
         </Row>
       </Container>
-      <PrintButton onClick={() => handlePrint("results")}>
-        <img src={print} alt="print icon" width="20px" height="20px" />
+      <PrintButton onClick={handlePrint}>
+        <img src={print} alt='print icon' width='20px' height='20px' />
         Print / Save
       </PrintButton>
     </>

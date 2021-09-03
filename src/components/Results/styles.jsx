@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { colors } from "../../services";
+import styled from 'styled-components';
+import { colors } from '../../services';
 
 export const Container = styled.div`
   padding: 20px;
@@ -39,6 +39,7 @@ export const PercentisCard = styled.div`
 export const Percentis = styled.div`
   width: 90px;
   height: 20px;
+  border: 1px solid #000;
 `;
 
 export const Row = styled.div`
