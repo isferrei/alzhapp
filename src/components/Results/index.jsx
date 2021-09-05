@@ -10,14 +10,15 @@ import {
   PercentisCard,
   PrintButton,
   Column,
+  Buttons,
 } from './styles';
 import { CognitiveTestContext } from '../../context/cognitiveTestContext';
 import { OctDataContext } from '../../context/octDataContext';
 import print from '../../icons/print.svg';
+import save from '../../icons/save.svg';
 import { useReactToPrint } from 'react-to-print';
 import {
   PDFDownloadLink,
-  PDFViewer,
   Page,
   Text,
   View,
@@ -30,18 +31,33 @@ function Results() {
   const cognitiveTestData = React.useContext(CognitiveTestContext);
   const octData = React.useContext(OctDataContext);
   const resultsRef = React.useRef();
+  const [isMobile, setIsMobile] = React.useState(false);
 
   const handlePrint = useReactToPrint({
     content: () => resultsRef.current,
   });
 
+  React.useEffect(() => {
+    const width = window.innerWidth;
+    console.log(isMobile);
+    if (width <= 500) {
+      setIsMobile(true);
+    } else {
+      setIsMobile(false);
+    }
+  });
+
   Font.register({
     family: 'Roboto',
-    src: './Roboto-Regular.ttf',
+    src: 'https://cdnjs.cloudflare.com/ajax/libs/ink/3.1.10/fonts/Roboto/roboto-light-webfont.ttf',
   });
 
   const s = StyleSheet.create({
-    page: { padding: '20px', fontSize: '12px', fontFamily: 'Roboto' },
+    page: {
+      padding: '20px',
+      fontSize: '12px',
+      fontFamily: 'Roboto',
+    },
     section: { textAlign: 'center', margin: 10 },
     line: { margin: 2 },
     percentage: {
@@ -59,57 +75,99 @@ function Results() {
       width: 50,
       fontSize: 10,
       padding: 5,
-      border:'1px solid #d8d8d8'
+      borderStyle: 'solid',
+      border: '1px',
+      borderColor: 'gray',
     },
   });
 
-  console.log(octData.gclIplOdPerc);
-
-  const MyDoc = () => (
+  const PdfDoc = () => (
     <Document>
       <Page size='A4' style={s.page}>
         <Text style={s.section}>Results / Summary:</Text>
         <Text style={s.line}>
-          Physician:{cognitiveTestData.cognitiveTest.physician}
+          Physician:{' '}
+          <Text style={{ fontWeight: 'bold' }}>
+            {cognitiveTestData.cognitiveTest.physician}
+          </Text>
         </Text>
         <Text style={s.line}>
-          Patient:{cognitiveTestData.cognitiveTest.patient}
+          Patient:{' '}
+          <Text style={{ fontWeight: 'bold' }}>
+            {cognitiveTestData.cognitiveTest.patient}
+          </Text>
         </Text>
         <Text style={s.line}>
-          ID number:{cognitiveTestData.cognitiveTest.idNumber}
-        </Text>
-        <Text style={s.line}>Sex:{cognitiveTestData.cognitiveTest.sex}</Text>
-        <Text style={s.line}>
-          Diagnosis:{cognitiveTestData.cognitiveTest.diagnosis}
-        </Text>
-        <Text style={s.line}>
-          Cognitive test A:{cognitiveTestData.cognitiveTest.cognitiveTestA}
+          ID number:{' '}
+          <Text style={{ fontWeight: 'bold' }}>
+            {cognitiveTestData.cognitiveTest.idNumber}
+          </Text>
         </Text>
         <Text style={s.line}>
-          Score value:{cognitiveTestData.cognitiveTest.scoreA}
+          Sex:{' '}
+          <Text style={{ fontWeight: 'bold' }}>
+            {cognitiveTestData.cognitiveTest.sex}
+          </Text>
+        </Text>
+        <Text style={s.line}>
+          Diagnosis:{' '}
+          <Text style={{ fontWeight: 'bold' }}>
+            {cognitiveTestData.cognitiveTest.diagnosis}
+          </Text>
+        </Text>
+        <Text style={s.line}>
+          Cognitive test A:{' '}
+          <Text style={{ fontWeight: 'bold' }}>
+            {cognitiveTestData.cognitiveTest.cognitiveTestA}
+          </Text>
+        </Text>
+        <Text style={s.line}>
+          Score value:{' '}
+          <Text style={{ fontWeight: 'bold' }}>
+            {cognitiveTestData.cognitiveTest.scoreA}
+          </Text>
         </Text>
         <Text style={s.line}>
           Cognitive test B:{' '}
-          <b>{cognitiveTestData.cognitiveTest.cognitiveTestB}</b>
+          <Text style={{ fontWeight: 'bold' }}>
+            {cognitiveTestData.cognitiveTest.cognitiveTestB}
+          </Text>
         </Text>
         <Text style={s.line}>
-          Score value:{cognitiveTestData.cognitiveTest.scoreB}
+          Score value:{' '}
+          <Text style={{ fontWeight: 'bold' }}>
+            {cognitiveTestData.cognitiveTest.scoreB}
+          </Text>
         </Text>
         <Text style={s.line}>
-          Ocular disease:{cognitiveTestData.cognitiveTest.ocularDisease}
+          Ocular disease:{' '}
+          <Text style={{ fontWeight: 'bold' }}>
+            {cognitiveTestData.cognitiveTest.ocularDisease}
+          </Text>
         </Text>
         <Text style={s.line}>
-          OCT Model:{cognitiveTestData.cognitiveTest.octModel}
+          OCT Model:{' '}
+          <Text style={{ fontWeight: 'bold' }}>
+            {cognitiveTestData.cognitiveTest.octModel}
+          </Text>
         </Text>
         <Text style={s.section}>Average Analysis Report</Text>
         <Text style={s.line}>Peripapillary RNFL (in microns)</Text>
         <View style={s.percentage}>
           <View>
             <Text style={s.line}>
-              OD: {octData.octData.peripapillary.od} μm
+              OD:{' '}
+              <Text style={{ fontWeight: 'bold' }}>
+                {octData.octData.peripapillary.od}{' '}
+              </Text>
+              μm
             </Text>
             <Text style={s.line}>
-              OS: {octData.octData.peripapillary.os} μm
+              OS:{' '}
+              <Text style={{ fontWeight: 'bold' }}>
+                {octData.octData.peripapillary.os}
+              </Text>{' '}
+              μm
             </Text>
           </View>
           <View>
@@ -140,10 +198,18 @@ function Results() {
         <View style={s.percentage}>
           <View>
             <Text style={s.line}>
-              OD: {octData.octData.macular_thickness.od} μm
+              OD:{' '}
+              <Text style={{ fontWeight: 'bold' }}>
+                {octData.octData.macular_thickness.od}
+              </Text>{' '}
+              μm
             </Text>
             <Text style={s.line}>
-              OS: {octData.octData.macular_thickness.os} μm
+              OS:{' '}
+              <Text style={{ fontWeight: 'bold' }}>
+                {octData.octData.macular_thickness.os}
+              </Text>{' '}
+              μm
             </Text>
           </View>
           <View>
@@ -176,10 +242,18 @@ function Results() {
         <View style={s.percentage}>
           <View>
             <Text style={s.line}>
-              OD: {octData.octData.macular_volume.od} mm³
+              OD:{' '}
+              <Text style={{ fontWeight: 'bold' }}>
+                {octData.octData.macular_volume.od}
+              </Text>{' '}
+              mm³
             </Text>
             <Text style={s.line}>
-              OS: {octData.octData.macular_volume.os} mm³
+              OS:{' '}
+              <Text style={{ fontWeight: 'bold' }}>
+                {octData.octData.macular_volume.os}
+              </Text>{' '}
+              mm³
             </Text>
           </View>
           <View>
@@ -209,8 +283,20 @@ function Results() {
         <Text style={s.line}>GCL/IPL thickness (in microns)</Text>
         <View style={s.percentage}>
           <View>
-            <Text style={s.line}>OD: {octData.octData.gcl_ipl.od} μm</Text>
-            <Text style={s.line}>OS: {octData.octData.gcl_ipl.os} μm</Text>
+            <Text style={s.line}>
+              OD:{' '}
+              <Text style={{ fontWeight: 'bold' }}>
+                {octData.octData.gcl_ipl.od}
+              </Text>{' '}
+              μm
+            </Text>
+            <Text style={s.line}>
+              OS:{' '}
+              <Text style={{ fontWeight: 'bold' }}>
+                {octData.octData.gcl_ipl.os}
+              </Text>{' '}
+              μm
+            </Text>
           </View>
           <View>
             <Text style={s.line}>Controls</Text>
@@ -239,8 +325,20 @@ function Results() {
         <Text style={s.line}>GCL/IPL/RNFL (in microns)</Text>
         <View style={s.percentage}>
           <View>
-            <Text style={s.line}>OD: {octData.octData.gcl_ipl_rnfl.od} μm</Text>
-            <Text style={s.line}>OS: {octData.octData.gcl_ipl_rnfl.os} μm</Text>
+            <Text style={s.line}>
+              OD:{' '}
+              <Text style={{ fontWeight: 'bold' }}>
+                {octData.octData.gcl_ipl_rnfl.od}
+              </Text>{' '}
+              μm
+            </Text>
+            <Text style={s.line}>
+              OS:{' '}
+              <Text style={{ fontWeight: 'bold' }}>
+                {octData.octData.gcl_ipl_rnfl.os}
+              </Text>{' '}
+              μm
+            </Text>
           </View>
           <View>
             <Text style={s.line}>Controls</Text>
@@ -252,11 +350,7 @@ function Results() {
                 },
               ]}
             >
-              {octData.gclIplRnflOdPerc ? (
-                octData.gclIplRnflOdPerc
-              ) : (
-                <Percentis />
-              )}
+              {octData.gclIplRnflOdPerc}
             </Text>
             <Text
               style={[
@@ -266,11 +360,7 @@ function Results() {
                 },
               ]}
             >
-              {octData.gclIplRnflOsPerc ? (
-                octData.gclIplRnflOsPerc
-              ) : (
-                <Percentis />
-              )}
+              {octData.gclIplRnflOsPerc}
             </Text>
           </View>
         </View>
@@ -281,9 +371,6 @@ function Results() {
   return (
     <>
       <Container ref={resultsRef}>
-        <PDFViewer width='100%' height='500px'>
-          {<MyDoc />}
-        </PDFViewer>
         <center>
           <h4>Results / Summary:</h4>
         </center>
@@ -533,10 +620,34 @@ function Results() {
           </PercentisCard>
         </Row>
       </Container>
-      <PrintButton onClick={handlePrint}>
-        <img src={print} alt='print icon' width='20px' height='20px' />
-        Print / Save
-      </PrintButton>
+      <center>
+        <Buttons>
+          {!isMobile ? (
+            <PrintButton onClick={handlePrint}>
+              <img src={print} alt='print icon' width='20px' height='20px' />
+              Print
+            </PrintButton>
+          ) : (
+            ''
+          )}
+          <PDFDownloadLink
+            document={<PdfDoc />}
+            fileName='results.pdf'
+            style={{ textDecoration: 'none' }}
+          >
+            {({ blob, url, loading, error }) =>
+              loading ? (
+                'Loading document...'
+              ) : (
+                <PrintButton>
+                  <img src={save} alt='print icon' width='20px' height='20px' />
+                  Save
+                </PrintButton>
+              )
+            }
+          </PDFDownloadLink>
+        </Buttons>
+      </center>
     </>
   );
 }

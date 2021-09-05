@@ -10,6 +10,13 @@ export const Container = styled.div`
   }
 `;
 
+export const Buttons = styled.div`
+  display: grid;
+  margin: 30px;
+  grid-template-columns: 1fr;
+  justify-content: center;
+`;
+
 export const Column = styled.div`
   display: flex;
   flex-direction: column;
@@ -39,7 +46,7 @@ export const PercentisCard = styled.div`
 export const Percentis = styled.div`
   width: 90px;
   height: 20px;
-  border: 1px solid #000;
+  border: 1px solid #d8d8d8;
 `;
 
 export const Row = styled.div`
@@ -66,7 +73,12 @@ export const Box = styled.div`
   }
 `;
 export const PrintButton = styled.div`
-  text-decoration: none;
+  a {
+    text-decoration: none;
+  }
+  a:link {
+    text-decoration: none;
+  }
   width: 250px;
   justify-self: center;
   display: flex;
