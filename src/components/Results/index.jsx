@@ -9,6 +9,7 @@ import {
   Percentis,
   PercentisCard,
   PrintButton,
+  PdfButton,
   Column,
   Buttons,
 } from './styles';
@@ -31,20 +32,9 @@ function Results() {
   const cognitiveTestData = React.useContext(CognitiveTestContext);
   const octData = React.useContext(OctDataContext);
   const resultsRef = React.useRef();
-  const [isMobile, setIsMobile] = React.useState(false);
 
   const handlePrint = useReactToPrint({
     content: () => resultsRef.current,
-  });
-
-  React.useEffect(() => {
-    const width = window.innerWidth;
-    console.log(isMobile);
-    if (width <= 500) {
-      setIsMobile(true);
-    } else {
-      setIsMobile(false);
-    }
   });
 
   Font.register({
@@ -622,14 +612,11 @@ function Results() {
       </Container>
       <center>
         <Buttons>
-          {!isMobile ? (
-            <PrintButton onClick={handlePrint}>
-              <img src={print} alt='print icon' width='20px' height='20px' />
-              Print
-            </PrintButton>
-          ) : (
-            ''
-          )}
+          <PrintButton onClick={handlePrint}>
+            <img src={print} alt='print icon' width='20px' height='20px' />
+            Print
+          </PrintButton>
+
           <PDFDownloadLink
             document={<PdfDoc />}
             fileName='results.pdf'
@@ -639,10 +626,10 @@ function Results() {
               loading ? (
                 'Loading document...'
               ) : (
-                <PrintButton>
+                <PdfButton>
                   <img src={save} alt='print icon' width='20px' height='20px' />
                   Save
-                </PrintButton>
+                </PdfButton>
               )
             }
           </PDFDownloadLink>

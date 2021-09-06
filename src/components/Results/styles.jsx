@@ -13,8 +13,12 @@ export const Container = styled.div`
 export const Buttons = styled.div`
   display: grid;
   margin: 30px;
-  grid-template-columns: 1fr;
+  grid-template-columns: auto 300px;
   justify-content: center;
+
+  @media (max-width: 500px) {
+    grid-template-columns: 1fr;
+  }
 `;
 
 export const Column = styled.div`
@@ -73,6 +77,40 @@ export const Box = styled.div`
   }
 `;
 export const PrintButton = styled.div`
+  a {
+    text-decoration: none;
+  }
+  a:link {
+    text-decoration: none;
+  }
+  width: 250px;
+  justify-self: center;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+  background-color: ${colors.primary};
+  color: ${colors.white};
+  padding: 10px;
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+  margin: 0 auto;
+  height: 20px;
+
+  @media (max-width: 500px) {
+    display: none;
+  }
+
+  img {
+    margin-right: 20px;
+  }
+
+  &:hover {
+    background-color: #009ccc;
+  }
+`;
+
+export const PdfButton = styled.div`
   a {
     text-decoration: none;
   }
