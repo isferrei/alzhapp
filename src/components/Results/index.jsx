@@ -12,11 +12,14 @@ import {
   PdfButton,
   Column,
   Buttons,
+  PercentisImg,
 } from './styles';
 import { CognitiveTestContext } from '../../context/cognitiveTestContext';
 import { OctDataContext } from '../../context/octDataContext';
 import print from '../../icons/print.svg';
 import save from '../../icons/save.svg';
+import percentis from '../../img/percentis.svg';
+import percent from '../../img/percentis.png';
 import { useReactToPrint } from 'react-to-print';
 import {
   PDFDownloadLink,
@@ -26,6 +29,7 @@ import {
   Document,
   StyleSheet,
   Font,
+  Image,
 } from '@react-pdf/renderer';
 
 function Results() {
@@ -54,7 +58,7 @@ function Results() {
       margin: 2,
       display: 'flex',
       flexDirection: 'row',
-      width: '150px',
+      width: '250px',
       justifyContent: 'space-between',
       alignItems: 'center',
     },
@@ -183,6 +187,9 @@ function Results() {
               {octData.peripOsPerc}
             </Text>
           </View>
+          <View>
+            <Image src={percent} style={{ width: 40 }} />
+          </View>
         </View>
         <Text style={s.line}>Total macular thickness (in microns)</Text>
         <View style={s.percentage}>
@@ -227,6 +234,9 @@ function Results() {
               {octData.totalMacularOsPerc}
             </Text>
           </View>
+          <View>
+            <Image src={percent} style={{ width: 40 }} />
+          </View>
         </View>
         <Text style={s.line}>Macular volume (in mm³)</Text>
         <View style={s.percentage}>
@@ -268,6 +278,9 @@ function Results() {
             >
               {octData.macularVolOsPerc}
             </Text>
+          </View>
+          <View>
+            <Image src={percent} style={{ width: 40 }} />
           </View>
         </View>
         <Text style={s.line}>GCL/IPL thickness (in microns)</Text>
@@ -311,6 +324,9 @@ function Results() {
               {octData.gclIplOsPerc}
             </Text>
           </View>
+          <View>
+            <Image src={percent} style={{ width: 40 }} />
+          </View>
         </View>
         <Text style={s.line}>GCL/IPL/RNFL (in microns)</Text>
         <View style={s.percentage}>
@@ -352,6 +368,9 @@ function Results() {
             >
               {octData.gclIplRnflOsPerc}
             </Text>
+          </View>
+          <View>
+            <Image src={percent} style={{ width: 40 }} />
           </View>
         </View>
       </Page>
@@ -447,6 +466,9 @@ function Results() {
               </tr>
             </table>
           </PercentisCard>
+          <PercentisImg>
+            <img src={percentis} alt='Percentage graphic' width='40px' />
+          </PercentisImg>
         </Row>
         <Break />
         <label>
@@ -489,6 +511,9 @@ function Results() {
               </tr>
             </table>
           </PercentisCard>
+          <PercentisImg>
+            <img src={percentis} alt='Percentage graphic' width='40px' />
+          </PercentisImg>
         </Row>
         <Break />
         <label>
@@ -531,6 +556,9 @@ function Results() {
               </tr>
             </table>
           </PercentisCard>
+          <PercentisImg>
+            <img src={percentis} alt='Percentage graphic' width='40px' />
+          </PercentisImg>
         </Row>
         <Break />
         <label>
@@ -566,6 +594,9 @@ function Results() {
               </tr>
             </table>
           </PercentisCard>
+          <PercentisImg>
+            <img src={percentis} alt='Percentage graphic' width='40px' />
+          </PercentisImg>
         </Row>
         <Break />
         <label>
@@ -608,6 +639,9 @@ function Results() {
               </tr>
             </table>
           </PercentisCard>
+          <PercentisImg>
+            <img src={percentis} alt='Percentage graphic' width='40px' />
+          </PercentisImg>
         </Row>
       </Container>
       <center>

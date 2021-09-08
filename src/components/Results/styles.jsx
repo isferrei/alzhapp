@@ -47,6 +47,11 @@ export const PercentisCard = styled.div`
   }
 `;
 
+export const PercentisImg = styled.div`
+  margin-left: 20px;
+  margin-top: 8px;
+`;
+
 export const Percentis = styled.div`
   width: 90px;
   height: 20px;
